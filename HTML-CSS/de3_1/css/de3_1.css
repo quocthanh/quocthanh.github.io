@@ -1,0 +1,111 @@
+﻿body {
+	font-family: Ảrial, Verdana, sans-serif;
+	font-size: 0.6875em;
+	color: #595959;
+	background-color: #121214;
+}
+
+.container {
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+.highlight, p a {
+	color: white;
+	text-decoration: none;
+}
+
+a {
+	color: #797979;
+}
+
+.section {
+	width: 470px;
+	float: left;
+}
+
+.section>p {
+	margin-bottom: 30px;
+}
+
+#group {
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 20px;
+}
+
+.article1 p:nth-of-type(3) {
+	clear: both;
+}
+
+.article1 p:last-child {
+	clear: both;
+	border-top: dotted 1px;
+	padding-top: 10px;
+}
+
+
+.article2 {
+	margin-top: 60px;
+	overflow: auto;
+}
+
+.nav1, .nav2 {
+	float: left;
+}
+
+ul, li {
+	margin-left: 5px;
+	padding-left: 0;
+	margin-bottom: 10px;
+}
+
+.nav2 ul, .nav2 li {
+	margin-left: 10px;
+}
+
+ul {
+	list-style-image: url("../img/arr.gif");
+}
+
+.article2 p:last-child {
+	clear: both;
+	border-top: dotted 1px;
+	padding-top: 10px;
+}
+
+.aside {
+	float: left;
+	background-color: #232326;
+	margin-left: 30px;
+	width: 250px;
+	height: 400px;
+}
+
+.pic_2 {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.wrapper {
+	width: 200px;
+	margin: auto;
+	border-top: solid 1px #595959;
+	margin-top: 80px;
+}
+
+.aside p img {
+	margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
