@@ -1,0 +1,41 @@
+body {
+	background-image: url("../img/Snow-Flurries-Generic_2.jpg");
+	//background-color: dodgerblue;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 0;
+	color: blue;
+	font-size: 250%
+}
+.slider {
+	width: 1000px;
+	height: 600px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	//border:solid 3px khaki;
+}
+
+#pics {
+	width: 900px;
+	height: 500px;
+	background-image: url("../img/111126_kis_manzara_resmi_hareketli_2.jpg");
+	//border: solid 3px indigo;
+}
+
+.arrow {
+	width: 50px;
+	height: 50px;
+	//border: solid 3px indigo;
+	overflow: hidden;
+}
+
+.arrow:hover {
+	cursor: pointer;
+}
+
+.arrow:last-child img {
+	margin-left: -50px;
+}
