@@ -3,6 +3,9 @@ thực hiện slider, số hình là num_pic, mỗi hình sẽ được chia ra 
 mỗi hình sẽ có 1 z-index khác nhau xếp theo thứ tự tăng dần, để hiển thị ra web, 
 khi ấn nút, hàm sẽ thực hiện thay đổi z-index của các hình 
 */
+
+
+
 var pics_index = 0; //chỉ số của hình đang có z-index cao 1
 
 var id; //dùng để clear timer
@@ -18,6 +21,11 @@ var timer_Flag = 0;
 
 var z = []; // mảng chứa các z-index của các phần nhỏ của các hình
 var pic = [];// mảng tham chiếu đến các phần nhỏ của các hình
+
+var under_pic = []; //mảng tham chiếu đến các ảnh ở dưới
+
+
+
 
 /*hàm init() chạy khi trang đc load, dùng để tạo các phần nhỏ <div> của các hình
 cùng với các thuộc tính id, css, background
@@ -51,6 +59,9 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 	for (var g = 0; g < num_pic; g++) { //tạo từng hình, 
 		z[g] = [];
 		pic[g] = [];
+
+		var id_under_pic = "under_pic_" + g;
+		under_pic[g] = document.getElementById(id_under_pic);
 
 		for (var r = 0; r < num_row; r++) { //tạo từng dòng của 1 hình
 			z[g][r] = [];
@@ -89,8 +100,15 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 		} //end r
 		tmp_1++;
 	}//end g
+
+	change_highlight(0);
 }
 
+/*hàm slide dùng để thay đổi hình ảnh bằng cách thay đổi các z-index
+direct = 0: thay đổi ảnh theo chiều nghịch
+direct = 1: thay đổi ảnh theo chiều thuận
+
+*/
 
 function slide(direct) {
 
@@ -101,6 +119,7 @@ function slide(direct) {
 		if (pics_index == 0) {
 			pics_index = num_pic;
 		}
+		//giảm z-index của các phần nhỏ của các hình đẻ hiển thị hình còn lại
 		for (var g = 0; g < num_pic; g++) {
 			if (g != (pics_index - 1)) {
 				for (var r = 0; r < num_row; r++) {
@@ -118,6 +137,12 @@ function slide(direct) {
 	}
     }
 }
+
+/*thay đổi z-index của hình đang có z-index cao nhất về 0
+thay đổi từ từ từng phần nhỏ của hình.
+tăng các z-index của các hìn khác lên 1
+
+*/
 
 function clear_z() {
 
@@ -160,11 +185,18 @@ function clear_z() {
 		} else {
 			pics_index++;
 		}
+
+		change_highlight(pics_index);
 	} else {
 		num_clear++;
 	}
 }
 
+/*
+tăng z-index của hình đang có z-index thấp nhất thành cao nhất
+tương tự, tăng từ từ từng phần của 1 hình
+
+*/
 
 function increase_z() {
 
@@ -192,10 +224,18 @@ function increase_z() {
 		timer_Flag = 0;
 
 		pics_index--;
+
+		change_highlight(pics_index);
 	} else {
 		num_increase++;
 	}
 }
+
+/*khi user click vào 1 hình, hình đó sẽ có z-index cao nhất
+đồng thời sắp xếp lại z-index của các hình #
+pic_show: chỉ số của hình cần đc hiển thị
+
+*/
 
 function fast_change(pic_show) {
     if (timer_Flag == 0) {
@@ -223,5 +263,22 @@ function fast_change(pic_show) {
 			}		
 		}
 	}
+
+	change_highlight(pics_index);
     }
+}
+
+/*
+làm nổi bật hình ở dưới theo hình đang hiển thị ở trên
+index: chỉ số của hình đang có z-index cao nhất
+*/
+
+function change_highlight(index) {
+	under_pic[index].style.border = "solid 3px indigo";
+
+	for (var g = 0; g < num_pic; g++) {
+		if (g != index) {
+			under_pic[g].style.border = "none";
+		}
+	}
 }
