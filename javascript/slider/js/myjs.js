@@ -1,14 +1,14 @@
 ﻿/*
-thực hiện slider, số hình là num_pic, mỗi hình sẽ được chia ra làm các dòng và các cột,mỗi phần tử là <div>
-mỗi hình sẽ có 1 z-index khác nhau xếp theo thứ tự tăng dần, để hiển thị ra web, 
-khi ấn nút, hàm sẽ thực hiện thay đổi z-index của các hình 
+making slider, a number of pictures is num_pic, each picture is divided into rows and columns to create many elements <div>
+The pictures has different z-indexs to show on the web page, 
+when user click on buttons, functions will change z-index of pictures
 */
 
 
 
-var pics_index = 0; //chỉ số của hình đang có z-index cao 1
+var pics_index = 0; //index of the pic which has highesht z-index
 
-var id; //dùng để clear timer
+var id; //clear timer
 
 var num_row = 0;
 var num_col = 0;
@@ -19,18 +19,17 @@ var num_increase = 0;
 
 var timer_Flag = 0;
 
-var z = []; // mảng chứa các z-index của các phần nhỏ của các hình
-var pic = [];// mảng tham chiếu đến các phần nhỏ của các hình
+var z = []; //contain z-index of elements of the picture
+var pic = [];// refer to elements of the picture
 
-var under_pic = []; //mảng tham chiếu đến các ảnh ở dưới
+var under_pic = [];
 
 
-/*hàm init() chạy khi trang đc load, dùng để tạo các phần nhỏ <div> của các hình
-cùng với các thuộc tính id, css, background
-num_pic_input: số hình
-num_row_input: số dòng các <div> của 1 hình
-num_col_input: số cột các <div> của 1 hình
-
+/*init(): create <div> elements of pics
+with id, css, background
+num_pic_input: pictures number 
+num_row_input:  row number 
+num_col_input: column number
 */
 
 function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height) {
@@ -49,23 +48,18 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 	var tmp_1 = 1;
 	var paren = document.getElementById("pics");
 
-	/*tạo ra các hình nhỏ với các id, width, height, css, ...
-	các hình nhỏ <div> sẽ có vị trí absolute 
-	background image đc điều chỉnh top, left để tất cả background hình nhỏ hợp lại thành 1 hình  lớn
-	*/
-
-	for (var g = 0; g < num_pic; g++) { //tạo từng hình, 
+	for (var g = 0; g < num_pic; g++) { 
 		z[g] = [];
 		pic[g] = [];
 
 		var id_under_pic = "under_pic_" + g;
 		under_pic[g] = document.getElementById(id_under_pic);
 
-		for (var r = 0; r < num_row; r++) { //tạo từng dòng của 1 hình
+		for (var r = 0; r < num_row; r++) { //make rows
 			z[g][r] = [];
 			pic[g][r] = [];
  
-			for (var c = 0; c < num_col; c++) { //tạo từng cột của 1 hình
+			for (var c = 0; c < num_col; c++) { //make columns
 				z[g][r][c] = num_pic - tmp_1;
 
 				var div_node  = document.createElement("div");
@@ -104,9 +98,8 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 	setInterval(function() { slide(1); }, 5000);
 }
 
-/*hàm slide dùng để thay đổi hình ảnh bằng cách thay đổi các z-index
-direct = 0: thay đổi ảnh theo chiều nghịch
-direct = 1: thay đổi ảnh theo chiều thuận
+/*slide: turn on timer to change z-index of pictures
+direct: the direction pictures will be slided
 
 */
 
@@ -119,7 +112,7 @@ function slide(direct) {
 		if (pics_index == 0) {
 			pics_index = num_pic;
 		}
-		//giảm z-index của các phần nhỏ của các hình đẻ hiển thị hình còn lại
+		
 		for (var g = 0; g < num_pic; g++) {
 			if (g != (pics_index - 1)) {
 				for (var r = 0; r < num_row; r++) {
@@ -138,10 +131,9 @@ function slide(direct) {
     }
 }
 
-/*thay đổi z-index của hình đang có z-index cao nhất về 0
-thay đổi từ từ từng phần nhỏ của hình.
-tăng các z-index của các hìn khác lên 1
+/*assign 0 to z-index of the <div> elements of the pic whose z-index is highest
 
+increase z-index of others 
 */
 
 function clear_z() {
@@ -193,8 +185,7 @@ function clear_z() {
 }
 
 /*
-tăng z-index của hình đang có z-index thấp nhất thành cao nhất
-tương tự, tăng từ từ từng phần của 1 hình
+assign the highest z-index value to the <div> elements of the pic which has the lowest z-index
 
 */
 
@@ -231,9 +222,7 @@ function increase_z() {
 	}
 }
 
-/*khi user click vào 1 hình, hình đó sẽ có z-index cao nhất
-đồng thời sắp xếp lại z-index của các hình #
-pic_show: chỉ số của hình cần đc hiển thị
+/*change pictures when user click on the small pics below slider
 
 */
 
@@ -268,9 +257,8 @@ function fast_change(pic_show) {
     }
 }
 
-/*
-làm nổi bật hình ở dưới theo hình đang hiển thị ở trên
-index: chỉ số của hình đang có z-index cao nhất
+/*highlight the small pic
+
 */
 
 function change_highlight(index) {
