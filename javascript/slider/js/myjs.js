@@ -25,8 +25,6 @@ var pic = [];// mảng tham chiếu đến các phần nhỏ của các hình
 var under_pic = []; //mảng tham chiếu đến các ảnh ở dưới
 
 
-
-
 /*hàm init() chạy khi trang đc load, dùng để tạo các phần nhỏ <div> của các hình
 cùng với các thuộc tính id, css, background
 num_pic_input: số hình
@@ -102,6 +100,8 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 	}//end g
 
 	change_highlight(0);
+
+	setInterval(function() { slide(1); }, 5000);
 }
 
 /*hàm slide dùng để thay đổi hình ảnh bằng cách thay đổi các z-index

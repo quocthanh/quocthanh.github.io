@@ -43,6 +43,7 @@ h1 img {
 	margin-right: 10px;
 	height: 52px;
 	overflow: hidden;
+	box-sizing: border-box;
 }
 
 #fast_button > div:hover {
