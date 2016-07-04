@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Slider</title>
+	<link href="css/slider.css" type="text/css" rel="stylesheet" />
+	<meta charset="UTF-8">
+</head>
+
+<body onload="init(4, 20, 30, 900, 480)">
+	<h1><img src="img/1467382408_snowman.png" alt="" width="50"/>Winter</h1>
+
+	<div class="slider" id="mamamu">
+		<div class="arrow" onclick="slide(0)">
+			<img src="img/1467381728_double-arrow-left.png" alt="" width="80"/>
+		</div>
+
+		<div id="pics">
+		</div>
+
+		<div class="arrow" onclick="slide(1)">
+			<img src="img/1467381713_double-arrow-right.png" alt="" width="80"/>
+		</div>
+	</div>
+
+	<div id="fast_button">
+		<div id="under_pic_0" onclick="fast_change(0)">
+			<img src="img/111126_kis_manzara_resmi_hareketli_2.jpg" alt="" />
+		</div>
+
+		<div id="under_pic_1" onclick="fast_change(1)">
+			<img src="img/Featured-Image1.jpg" alt="" />
+		</div>
+
+		<div id="under_pic_2" onclick="fast_change(2)">
+			<img src="img/36488_2.jpg" alt="" />
+		</div>
+
+		<div id="under_pic_3" onclick="fast_change(3)">
+			<img src="img/Snow-Wallpapers-10_2.jpg" alt="" />
+		</div>
+	</div>
+
+<script src="js/myjs.js"></script>
+</body>
+
+</html>

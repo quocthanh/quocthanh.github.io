@@ -1,0 +1,55 @@
+h1 {
+	text-align: center;
+	margin-bottom: 0;
+	color: blue;
+	font-size: 250%
+}
+h1 img {
+	vertical-align: middle;
+}
+.slider {
+	width: 1100px;
+	height: 500px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+}
+
+#pics {
+	width: 900px;
+	height: 480px;
+	position: relative;
+	margin: auto;
+}
+
+
+.arrow {
+	overflow: hidden;
+}
+
+.arrow:hover {
+	cursor: pointer;
+}
+
+
+#fast_button {
+	width: 900px;
+	margin: auto;
+	display: flex;
+	overflow: hidden;
+}
+
+#fast_button > div {
+	margin-right: 10px;
+	height: 52px;
+	overflow: hidden;
+}
+
+#fast_button > div:hover {
+	cursor: pointer;
+	border: solid 3px indigo;
+}
+
+#fast_button > div > img {
+	width: 100px;
+}
