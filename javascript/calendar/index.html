@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calendar</title>
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+	<div>
+		<input id="date" type="text" name="date" />
+	</div>
+
+	<div id="calendar">
+		<table id="calendar_tb">
+			<tr>
+				<td><img src="img/1467643609_arrow_full_left.png" alt="" width="30"/></td>
+				<td><img src="img/1467643055_Arrow_Back.png" alt="" width="20"/></td>
+				<td colspan="2"><select name="month">
+						<option value="0">January</option>
+						<option value="1">Febrary</option>
+						<option value="2">March</option>
+						<option value="3">April</option>
+						<option value="4">May</option>
+						<option value="5">June</option>
+						<option value="6">July</option>
+						<option value="7">August</option>
+						<option value="8">September</option>
+						<option value="9">October</option>
+						<option value="10">November</option>
+						<option value="11">December</option>
+						</select>
+				</td>
+				<td><select name="year" id="year_select"></select></td>
+				<td><img src="img/1467643096_Arrow_Forward.png" alt="" width="20"/></td>
+				<td><img src="img/1467643563_arrow_full_right.png" alt="" width="30"/></td>
+			</tr>
+
+			<tr>
+				<td>SUN</td>
+				<td>MON</td>
+				<td>TUE</td>
+				<td>WED</td>
+				<td>THU</td>
+				<td>FRI</td>
+				<td>SAT</td>
+			</tr>
+		</table>
+	</div>
+
+	<p id="test"></p>
+
+	<script src="js/calendar.js"></script>
+</body>
+
+</html>
