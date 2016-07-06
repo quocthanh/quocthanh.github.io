@@ -1,3 +1,39 @@
-/*img {
-	width: 30px;
-}*/
+body {
+	background-image: url("../img/0528_time-pocket-watch.jpg");
+}
+
+.container {
+	width: 500px;
+	position: relative;
+	left: 15%;
+	top: 40px;
+}
+
+
+
+#input_field {
+	position: relative;
+}
+
+#input_field input {
+	height: 20px;
+}
+
+#input_field img {
+	position: absolute;
+	left: 150px;
+	top: 2px;
+}
+
+
+
+#calendar {
+	display: none;
+}
+
+
+table td {
+	text-align: center;
+	//border:solid 1px;
+	width: 50px;
+}

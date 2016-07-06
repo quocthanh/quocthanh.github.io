@@ -4,19 +4,23 @@
 <head>
 	<title>Calendar</title>
 	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
+	<script src="js/calendar.js"></script>
 </head>
 
 <body>
-	<div>
+	<div class="container">	
+
+	<div id="input_field">
 		<input id="date" type="text" name="date" />
+		<img id="calendar_img" src="img/calendar.png" alt="calendar" width="20"/>
 	</div>
 
 	<div id="calendar">
 		<table id="calendar_tb">
 			<tr>
-				<td><img src="img/1467643609_arrow_full_left.png" alt="" width="30"/></td>
-				<td><img src="img/1467643055_Arrow_Back.png" alt="" width="20"/></td>
-				<td colspan="2"><select name="month">
+				<td><img id="pre_year" src="img/1467643609_arrow_full_left.png" alt="" width="30"/></td>
+				<td><img id="pre_month" src="img/1467643055_Arrow_Back.png" alt="" width="20"/></td>
+				<td colspan="2"><select name="month" id="month_select">
 						<option value="0">January</option>
 						<option value="1">Febrary</option>
 						<option value="2">March</option>
@@ -32,8 +36,8 @@
 						</select>
 				</td>
 				<td><select name="year" id="year_select"></select></td>
-				<td><img src="img/1467643096_Arrow_Forward.png" alt="" width="20"/></td>
-				<td><img src="img/1467643563_arrow_full_right.png" alt="" width="30"/></td>
+				<td><img id="next_month" src="img/1467643096_Arrow_Forward.png" alt="" width="20"/></td>
+				<td><img id="next_year" src="img/1467643563_arrow_full_right.png" alt="" width="30"/></td>
 			</tr>
 
 			<tr>
@@ -50,7 +54,9 @@
 
 	<p id="test"></p>
 
-	<script src="js/calendar.js"></script>
+	</div><!-- end container -->
+
+	<!--<script src="js/calendar.js"></script>-->
 </body>
 
 </html>
