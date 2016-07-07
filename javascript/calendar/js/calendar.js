@@ -1,13 +1,14 @@
 window.onload = init;
 
-var elem = document.getElementById("test");
-
 function init() {
 	event_assign();
 
 	createYearList();
 }
 
+/*add event handler to elements
+
+*/
 function event_assign() {
 	document.getElementById("calendar_img").onclick = function() { show_calendar(); };
 
@@ -20,9 +21,12 @@ function event_assign() {
 	document.getElementById("year_select").onchange = change_calendar;
 }
 
+/*change display to 'block'
+
+*/
 function show_calendar() {
 	var cal = document.getElementById("calendar");
-	
+
     	if (cal.style.display != "block") {
 		var today = new Date();
 		var x = document.getElementById("month_select");
@@ -37,12 +41,18 @@ function show_calendar() {
     	}
 }
 
+/*change display to 'none'
+
+*/
 function hide_calendar() {
 	var cal = document.getElementById("calendar");
 
 	cal.style.display = "none";
 }
 
+/*change calendar's content based on new month, year
+
+*/
 function change_calendar() {
 	var x     = document.getElementById("month_select");
 	var y     = document.getElementById("year_select");
@@ -55,14 +65,15 @@ function change_calendar() {
 
 	var x = tmp.getDate() - (7 - date.getDay());
 	x = x/7;
-	var row = Math.ceil(x) + 1;
+	var row = Math.ceil(x) + 1; // the row of the calendar
 
 	clear_table();
 	create_table(row, 7);
 
 	var r = 3;
 	var c = date.getDay() + 1;
-	for (var g = 0; g < tmp.getDate(); g++) {	
+	for (var g = 0; g < tmp.getDate(); g++) {
+		//refer to <td> which is created in create_table
 		var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + r + ") > td:nth-of-type(" + c + ")");
 		tb_cell_tmp[0].childNodes[0].nodeValue = g + 1;
 
@@ -79,6 +90,9 @@ function change_calendar() {
 	}
 }
 
+/*create <tr>, <td> in <table>, base on the inputs: row, col
+
+*/
 function create_table(row, col) {
 	for (var r = 0; r < row; r++) {
 		var tb_row = document.createElement("tr");
@@ -101,21 +115,28 @@ function create_table(row, col) {
 	}	
 }
 
+/*clear <tr> (from the third) before create new one
+
+*/
 function clear_table() {
 	var tb_row_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(3)");
 	var tb = document.getElementById("calendar_tb");
 	var tb_body = tb.childNodes[1];
-	
+
 	while (tb_row_tmp[0]) {
 		tb_body.removeChild(tb_row_tmp[0]);
 		tb_row_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(3)");
 	}
 }
 
+/*show the date in input field when user click on the table
+
+*/
+
 function show_date(row, col) {
 	var date_box = document.getElementById("date");
 	var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
-	
+
 	var x = document.getElementById("month_select");
 	var y = document.getElementById("year_select");
 
@@ -127,6 +148,10 @@ function show_date(row, col) {
 	}
 }
 
+/*Functions handle the event when user click on 
+the pre_year, pre_month, next_year, next_month images
+
+*/
 function toPreYear() {
 	var x = document.getElementById("month_select");
 	var y = document.getElementById("year_select");
@@ -191,6 +216,10 @@ function toNextMonth() {
 	change_calendar();
 }
 
+/*highlight the current date
+
+*/
+
 function date_highlight() {
 	var today = new Date();
 	var first_date = new Date(today.getFullYear(), today.getMonth());
@@ -208,7 +237,7 @@ function date_highlight() {
 
 	var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
 	tb_cell_tmp[0].style.border = "solid 2px";
-	
+	tb_cell_tmp[0].style.boxSizing = "border-box";	
 }
 
 function createYearList() {
