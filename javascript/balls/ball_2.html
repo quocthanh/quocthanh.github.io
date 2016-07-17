@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>hahaha</title>
+	<link href="" type="text/css" rel="stylesheet" />
+	<script src="js_2/canvas_create.js"></script>
+	<script src="js_2/ballList.js"></script>
+	<script src="js_2/ball.js"></script>
+
+<style>
+#xxyy {
+	margin-top: 500px;
+}
+
+</style>
+
+
+<script>
+window.onload = init;
+
+const NUM = 200;
+
+var canvas;
+var cxt;
+var list = new BallList();
+var t = 0;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	ctx    = canvas.getContext("2d");
+
+	canvas.clear = function() {
+		this.width = this.width;
+	};
+
+	setInterval("moving()", 30);
+
+	canvasCreate(NUM);
+}
+
+function moving() {
+	if (t == 0) {
+
+	t = 1;
+	canvas.clear();
+	for (var g = 0; g < NUM; g++) {
+		list.items[g].moving();
+	}
+	t = 0;
+
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+<canvas id="canvas" width="1300" height="600" style="border: 1px solid">
+</canvas>
+
+<div id="can_div">
+</div>
+
+<div id="xxyy">
+<br />
+<button onclick="func()"></button>
+
+<p>aaa aaa</p>
+
+<p id="ass"></p>
+</div>
+
+<script>
+var elem = document.getElementById("ass");
+</script>
+</body>
+
+</html>

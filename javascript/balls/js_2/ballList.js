@@ -1,0 +1,3 @@
+function BallList() {
+	this.items = [];
+}
