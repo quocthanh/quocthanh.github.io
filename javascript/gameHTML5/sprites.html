@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>hahaha</title>
+	<link href="" type="text/css" rel="stylesheet" />
+	<script src="js_sprites/Sprite.js"></script>
+	<script src="js_sprites/Sprite_Image.js"></script>
+	<script src="js_sprites/monsterList.js"></script>
+
+<script>
+var list = new monsterList();
+
+
+
+
+var canvas;
+var ctx;
+
+var tmp = 0;
+
+window.onload = function() {
+	//document.body.style.background = "khaki";
+
+	canvas = document.getElementById("canvas");
+	ctx = canvas.getContext("2d");
+
+	canvas.style.background = "khaki";
+
+	createMonster();
+
+	setInterval(progress, 100);
+	
+};
+
+function clear() {
+		canvas.width = canvas.width;
+}
+
+function progress() {
+	clear();
+
+	for (var g = 0; g < list.items.length; g++) {
+		list.items[g].draw(ctx);
+		list.items[g].move();
+		list.items[g].clip();
+	}
+	
+}
+
+</script>
+</head>
+
+<body>
+
+<canvas id="canvas" width="600" height="500" style="border: 1px solid;">
+</canvas>
+
+<br />
+<button onclick="func()"></button>
+
+<p>aaa aaa</p>
+
+<p id="ass"></p>
+
+<script>
+var elem = document.getElementById("ass");
+</script>
+</body>
+
+</html>
