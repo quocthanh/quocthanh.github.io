@@ -15,6 +15,8 @@ function Sprite_Image(path, disX, disY, row, col, finalCol) {
 	this.row = row;
 	this.col = col;
 	this.finalCol = finalCol;
+
+	this.isSelected = false;
 }
 
 Sprite_Image.prototype.setSRC = function(path) {
@@ -48,12 +50,12 @@ Sprite_Image.prototype.clip = function() {
 };
 
 Sprite_Image.prototype.draw = function(context) {
+
 	context.drawImage(this.img, this.sx, this.sy, this.disX, this.disY, this.px, this.py, this.disX, this.disY);
+
+	this.move()
+	this.clip();
 };
-
-
-
-
 
 
 

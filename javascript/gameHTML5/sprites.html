@@ -4,9 +4,42 @@
 <head>
 	<title>hahaha</title>
 	<link href="" type="text/css" rel="stylesheet" />
+
+<style>
+#canvas {
+	margin-right: 0px;
+	float: left;	
+}
+
+#control {
+	//margin-left: -3px;
+	border: 3px solid;
+	background: khaki;
+	width: 100px;
+	height: 500px;
+	float: left;
+
+	display: flex;
+	justify-content: space-around;
+}
+
+/*#control_wrapper {
+	border: 3px solid;
+	//width: 70px;
+}*/
+
+button {
+	display: block;
+	clear: both;
+}
+</style>
+
 	<script src="js_sprites/Sprite.js"></script>
 	<script src="js_sprites/Sprite_Image.js"></script>
+	<script src="js_sprites/Sprite_Image_2.js"></script>
+	<script src="js_sprites/Static_Image.js"></script>
 	<script src="js_sprites/monsterList.js"></script>
+	<script src="js_sprites/InputProcess.js"></script>
 
 <script>
 var list = new monsterList();
@@ -29,8 +62,10 @@ window.onload = function() {
 
 	createMonster();
 
+	canvas.onclick = InputProcess;
+
 	setInterval(progress, 100);
-	
+
 };
 
 function clear() {
@@ -40,12 +75,52 @@ function clear() {
 function progress() {
 	clear();
 
-	for (var g = 0; g < list.items.length; g++) {
-		list.items[g].draw(ctx);
-		list.items[g].move();
-		list.items[g].clip();
+	for (g = 1; g < list.items.length; g++) { //nho sua laiiiiiiiiiiiiiiii
+		if (list.items[g].isSelected) {
+			list.cFlag = 1;
+			break;
+		}
+		
+		list.cFlag = 0;
 	}
-	
+
+
+    if (list.cFlag == 0) {
+
+	list.cFlag = 1;
+	var preNum = [];
+
+	for (var g = 0; g < list.selectNum; g++) {
+	    var check = 1;
+	    while (check == 1) {		
+
+		var x = list.items.length - Math.floor(Math.random()*8 + 1);
+
+		check = 0;
+		for (var h = 0; h < g; h++) {
+			if (x == preNum[h]) {
+				check = 1;
+			}
+		}
+
+		if (check == 0) {
+			list.items[x].isSelected = true;
+
+			preNum[g] = x;
+		}
+
+	    }
+	}
+
+    }
+
+
+
+	for (var g = 0; g < list.items.length; g++) {
+		if (list.items[g].isSelected) {
+			list.items[g].draw(ctx);
+		}
+	}
 }
 
 </script>
@@ -55,6 +130,14 @@ function progress() {
 
 <canvas id="canvas" width="600" height="500" style="border: 1px solid;">
 </canvas>
+
+<div id="control">
+<div id="control_wrapper">
+	<div>
+		<img src="img/1469030078_game.png" alt="play" />
+	</div>
+</div>
+</div>
 
 <br />
 <button onclick="func()"></button>
