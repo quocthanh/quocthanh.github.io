@@ -1,3 +1,7 @@
+/*
+
+*/
+
 function Static_Image(path) {
 	this.img = new Image();
 
@@ -11,8 +15,8 @@ function Static_Image(path) {
 	this.top;
 	this.bottom;
 
-	this.speedX = (Math.ceil(Math.random()*10))* Math.pow(-1, Math.ceil((Math.random()*10)%2));;
-	this.speedY = (Math.ceil(Math.random()*10))* Math.pow(-1, Math.ceil((Math.random()*10)%2));;
+	this.speedX = (Math.ceil(Math.random()*5))* Math.pow(-1, Math.ceil((Math.random()*10)%2));;
+	this.speedY = (Math.ceil(Math.random()*5))* Math.pow(-1, Math.ceil((Math.random()*10)%2));;
 
 	this.cflag = 0;	
 
@@ -25,9 +29,11 @@ function Static_Image(path) {
 }
 
 Static_Image.prototype.draw = function(context) {
+	//elem.innerHTML += this.cflag;
 	if (this.cflag == 0) {
 		this.cflag = 1;
 
+		//elem.innerHTML += "-43-";
 		this.changePosition();
 		this.changeSpeed();
 		this.changeBound();
@@ -43,13 +49,10 @@ Static_Image.prototype.draw = function(context) {
 Static_Image.prototype.move = function() {
 	this.numMove++;
 
-	//elem.innerHTML += "-haha-";
 	if (this.numMove > this.Bound) {
 		this.speedX = -this.speedX;
 		this.speedY = -this.speedY;
-		this.numMove = -200;
-
-		//elem.innerHTML += "-haha-";
+		this.numMove = -500;
 	}
 
 	this.px += this.speedX;
@@ -70,7 +73,7 @@ Static_Image.prototype.changePosition = function() {
 		this.px = x;
 		this.py = 0 - Math.floor(Math.random()*2)*(0 - (canvas.height - this.img.height));
 	} else {
-		this.px = 0 - Math.floor(Math.random()*2)*(0 - (canvas.width - this.img.width));;
+		this.px = 0;// - Math.floor(Math.random()*2)*(0 - (canvas.width - this.img.width));;
 		this.py = y;
 	}
 };
@@ -103,22 +106,27 @@ Static_Image.prototype.checkOut = function() {
 		this.isSelected = false;
 		this.cflag      = 0;
 		this.numMove = 0;
+
+		cList.StageList[cList.currentStage].score--;
 	}
 };
 
 Static_Image.prototype.isClick = function(x, y) {
 	if (x > this.left && x < this.right && y > this.top && y < this.bottom) {
-		this.clickReact();
+		this.clickReact(x, y);
 
 		return true;
 	}
 };
 
 
-Static_Image.prototype.clickReact = function() {
+Static_Image.prototype.clickReact = function(x, y) {
 	this.isSelected = false;
 	this.cflag      = 0;
 	this.numMove = 0;
+
+	cList.addScreenScore(x, y, 1);
+	++cList.StageList[cList.currentStage].score;
 };
 
 
