@@ -1,0 +1,28 @@
+#container {
+	width: 900px;
+	float: left;
+	margin-right: 10px;
+}
+#smallVersion {
+	width: 100px;
+	float: left;
+}
+#smallVersion img {
+	width: 100px;
+	box-sizing: border-box;
+	margin: 10px;
+}
+#nav {
+	overflow: auto;
+	width: 900px;
+}
+#pre {
+	float: left;
+}
+#next {
+	float: right;
+}
+
+#smallVersion img, #nav img {
+	cursor: pointer;
+}
