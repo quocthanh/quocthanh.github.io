@@ -1,0 +1,31 @@
+fieldset {
+	border: solid 2px burlywood;
+}
+legend {
+	font-weight: bold;
+}
+
+
+
+#info {
+	border-spacing: 10px;
+}
+#info > tbody > tr > td:first-child {
+	text-align: right;
+	font-weight: bold;
+}
+
+#info > tbody > tr > td:nth-of-type(3) {
+	color: red;
+}
+#info input {
+	height: 20px;
+	border: solid  2px burlywood;
+}
+#info #ajax_sub, #info #ajax_ref {
+	font-weight: bold;
+	height: 40px;
+	margin-right: 10px;
+	background-color: burlywood;
+	opacity: 0.8;
+}

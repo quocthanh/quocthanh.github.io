@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>formAjax</title>
+	<meta charset="UTF-8">
+
+	<link href="jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+	<link href="css/formAjax.css" type="text/css" rel="stylesheet" />
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+	<script src="js/formAjax.js"></script>
+</head>
+
+<body>
+    <fieldset>
+	<legend>Sign Up</legend>
+
+	<table id="info">
+		<tr>
+			<td>Username: </td>
+			<td><input id="user_name" type="text" name="nameee" />
+			<td id="name_notify"></td>
+		</tr>
+
+		<tr>
+			<td>Password: </td>
+			<td><input id="user_password" type="password" name="password" /></td>
+			<td id="pass_notify"></td>
+		</tr>
+
+		<tr>
+			<td>Email: </td>
+			<td><input id="user_email" type="email" name="email" /></td>
+			<td id="email_notify"></td>
+		</tr>
+
+		<tr>
+			<td>Birthday: </td>
+			<td>
+				<div id="input_field">
+					<input id="date" type="text" name="date" disabled/>
+				</div>
+			</td>
+			<td id="birth_notify"></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<button id="ajax_sub">SUBMIT</button>
+				<button id="ajax_ref">REFRESH</button>
+			</td>
+		</tr>
+	</table>
+    </fieldset>
+</body>
+
+</html>
