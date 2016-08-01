@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar-jQuery UI</title>
+	<link href="jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+	<link href="css/calendar.css" type="text/css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="jquery-ui/jquery-ui.min.js"></script>
+	<script>
+		$(function() {
+			//jQuery UI method
+			$('#date').datepicker({
+				changeMonth: true,
+				changeYear: true,
+				yearRange: '-50:+50',
+				dateFormat: 'dd-mm-yy'
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="dateContainer">
+		<input type="text" name="birthdate" id="date">
+		<img src="img/calendar.png" alt="" />
+	</div>
+</body>
+
+</html>
