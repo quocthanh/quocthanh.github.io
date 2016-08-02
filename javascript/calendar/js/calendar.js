@@ -29,11 +29,11 @@ function show_calendar() {
 
     	if (cal.style.display != "block") {
 		var today = new Date();
-		var x = document.getElementById("month_select");
-		var y = document.getElementById("year_select");
+		var month = document.getElementById("month_select");
+		var year = document.getElementById("year_select");
 
-		x.selectedIndex = today.getMonth();
-		y.selectedIndex = today.getFullYear() - 1990;
+		month.selectedIndex = today.getMonth();
+		year.selectedIndex = today.getFullYear() - 1990;
 
 		change_calendar();
 
@@ -74,7 +74,8 @@ function change_calendar() {
 	var c = date.getDay() + 1;
 	for (var g = 0; g < tmp.getDate(); g++) {
 		//refer to <td> which is created in create_table
-		var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + r + ") > td:nth-of-type(" + c + ")");
+		var tb_cell_tmp = 
+		document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + r + ") > td:nth-of-type(" + c + ")");
 		tb_cell_tmp[0].childNodes[0].nodeValue = g + 1;
 
 		if (c < 7) {
@@ -135,13 +136,16 @@ function clear_table() {
 
 function show_date(row, col) {
 	var date_box = document.getElementById("date");
-	var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
+	var tb_cell_tmp = 
+	document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
 
-	var x = document.getElementById("month_select");
-	var y = document.getElementById("year_select");
+	var month = document.getElementById("month_select");
+	var year = document.getElementById("year_select");
 
  	if (tb_cell_tmp[0].childNodes[0].nodeValue != "") {
-		var date_string = tb_cell_tmp[0].childNodes[0].nodeValue + "/" + (x.selectedIndex + 1) + "/" + (y.selectedIndex + 1990);
+		var date_string = 
+		tb_cell_tmp[0].childNodes[0].nodeValue + "/" + 
+		(month.selectedIndex + 1) + "/" + (year.selectedIndex + 1990);
 		date_box.value = date_string;
 
 		hide_calendar();
@@ -153,31 +157,31 @@ the pre_year, pre_month, next_year, next_month images
 
 */
 function toPreYear() {
-	var x = document.getElementById("month_select");
-	var y = document.getElementById("year_select");
+	var month = document.getElementById("month_select");
+	var year = document.getElementById("year_select");
 
-	if (y.selectedIndex > 0) {
-		y.selectedIndex--;
+	if (year.selectedIndex > 0) {
+		year.selectedIndex--;
 	} else {
-		y.selectedIndex = y.length - 1 ;
+		year.selectedIndex = year.length - 1 ;
 	}
 
 	change_calendar();
 }
 
 function toPreMonth() {
-	var x = document.getElementById("month_select");
-	var y = document.getElementById("year_select");
+	var month = document.getElementById("month_select");
+	var year = document.getElementById("year_select");
 
-	if (x.selectedIndex > 0) {
-		x.selectedIndex--;
+	if (month.selectedIndex > 0) {
+		month.selectedIndex--;
 	} else {
-		x.selectedIndex = 11;
+		month.selectedIndex = 11;
 
-		if (y.selectedIndex > 0) {
-			y.selectedIndex--;
+		if (year.selectedIndex > 0) {
+			year.selectedIndex--;
 		} else {
-			y.selectedIndex = y.length - 1 ;
+			year.selectedIndex = year.length - 1 ;
 		}
 	}
 
@@ -185,31 +189,31 @@ function toPreMonth() {
 }
 
 function toNextYear() {
-	var x = document.getElementById("month_select");
-	var y = document.getElementById("year_select");
+	var month = document.getElementById("month_select");
+	var year = document.getElementById("year_select");
 
-	if (y.selectedIndex < y.length - 1) {
-		y.selectedIndex++;
+	if (year.selectedIndex < year.length - 1) {
+		year.selectedIndex++;
 	} else {
-		y.selectedIndex = 0;
+		year.selectedIndex = 0;
 	}
 
 	change_calendar();
 }
 
 function toNextMonth() {
-	var x = document.getElementById("month_select");
-	var y = document.getElementById("year_select");
+	var month = document.getElementById("month_select");
+	var year = document.getElementById("year_select");
 
-	if (x.selectedIndex < 11) {
-		x.selectedIndex++;
+	if (month.selectedIndex < 11) {
+		month.selectedIndex++;
 	} else {
-		x.selectedIndex = 0;
+		month.selectedIndex = 0;
 
-		if (y.selectedIndex < y.length - 1) {
-			y.selectedIndex++;
+		if (year.selectedIndex < year.length - 1) {
+			year.selectedIndex++;
 		} else {
-			y.selectedIndex = y.length - 1 ;
+			year.selectedIndex = year.length - 1;
 		}
 	}
 
@@ -235,19 +239,20 @@ function date_highlight() {
 	var row = x;
 	var col = today.getDay() + 1;
 
-	var tb_cell_tmp = document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
+	var tb_cell_tmp = 
+	document.querySelectorAll("#calendar_tb > tbody > tr:nth-of-type(" + row + ") > td:nth-of-type(" + col + ")");
 	tb_cell_tmp[0].style.border = "solid 2px";
-	tb_cell_tmp[0].style.boxSizing = "border-box";	
+	tb_cell_tmp[0].style.boxSizing = "border-box";
 }
 
 function createYearList() {
 
-	var x = document.getElementById("year_select");
+	var year = document.getElementById("year_select");
 
 	for (var g = 0; g < 50; g++) {
-		var y = document.createElement("option");
-		y.text = 1990 + g;
-		y.value = 1990 + g;
-		x.options.add(y);
+		var opt = document.createElement("option");
+		opt.text = 1990 + g;
+		opt.value = 1990 + g;
+		year.options.add(opt);
 	}
 }

@@ -19,7 +19,7 @@ var num_increase = 0;
 
 var timer_Flag = 0;
 
-var z = []; //contain z-index of elements of the picture
+var z_index = []; //contain z-index of elements of the picture
 var pic = [];// refer to elements of the picture
 
 var under_pic = [];
@@ -48,26 +48,26 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 	var tmp_1 = 1;
 	var paren = document.getElementById("pics");
 
-	for (var g = 0; g < num_pic; g++) { 
-		z[g] = [];
-		pic[g] = [];
+	for (var picIndex = 0; picIndex < num_pic; picIndex++) { 
+		z_index[picIndex] = [];
+		pic[picIndex] = [];
 
-		var id_under_pic = "under_pic_" + g;
-		under_pic[g] = document.getElementById(id_under_pic);
+		var id_under_pic = "under_pic_" + picIndex;
+		under_pic[picIndex] = document.getElementById(id_under_pic);
 
-		for (var r = 0; r < num_row; r++) { //make rows
-			z[g][r] = [];
-			pic[g][r] = [];
+		for (var rowIndex = 0; rowIndex < num_row; rowIndex++) { //make rows
+			z_index[picIndex][rowIndex] = [];
+			pic[picIndex][rowIndex] = [];
  
-			for (var c = 0; c < num_col; c++) { //make columns
-				z[g][r][c] = num_pic - tmp_1;
+			for (var colIndex = 0; colIndex < num_col; colIndex++) { //make columns
+				z_index[picIndex][rowIndex][colIndex] = num_pic - tmp_1;
 
 				var div_node  = document.createElement("div");
 				paren.appendChild(div_node);
 
 				var id_string = "";
-				var g_1 = g + 1;
-				id_string = "pic" + g_1 + "_" + r + "_" + c;
+				var g_1 = picIndex + 1;
+				id_string = "pic" + g_1 + "_" + rowIndex + "_" + colIndex;
 				paren.lastChild.setAttribute("id", id_string);
 
 				var width_square = pic_width/num_col;
@@ -78,20 +78,21 @@ function init(num_pic_input, num_row_input, num_col_input, pic_width, pic_height
 
 				paren.lastChild.style.position = "absolute";
 
-				var top_pixel = height_square*r;
-				var left_pixel = width_square*c;
+				var top_pixel = height_square * rowIndex;
+				var left_pixel = width_square * colIndex;
 				paren.lastChild.style.top = top_pixel + "px";
 				paren.lastChild.style.left = left_pixel + "px";
 
-				paren.lastChild.style.zIndex = z[g][r][c];
+				paren.lastChild.style.zIndex = z_index[picIndex][rowIndex][colIndex];
 
-				paren.lastChild.style.background = back_img[g] + ' -' + left_pixel + 'px' + ' -' + top_pixel + 'px';
+				paren.lastChild.style.background = 
+				back_img[picIndex] + ' -' + left_pixel + 'px' + ' -' + top_pixel + 'px';
 
-				pic[g][r][c] = document.getElementById(id_string);
+				pic[picIndex][rowIndex][colIndex] = document.getElementById(id_string);
 			}
-		} //end r
+		} //end rowIndex
 		tmp_1++;
-	}//end g
+	}//end picIndex
 
 	change_highlight(0);
 
@@ -115,10 +116,10 @@ function slide(direct) {
 		
 		for (var g = 0; g < num_pic; g++) {
 			if (g != (pics_index - 1)) {
-				for (var r = 0; r < num_row; r++) {
-					for (var c = 0; c < num_col; c++) {
-						z[g][r][c]--;
-						pic[g][r][c].style.zIndex = z[g][r][c];
+				for (var row = 0; row < num_row; row++) {
+					for (var col = 0; col < num_col; col++) {
+						z_index[g][row][col]--;
+						pic[g][row][col].style.zIndex = z_index[g][row][col];
 					}
 				}
 			}
@@ -144,12 +145,12 @@ function clear_z() {
 	sodu_2[2] = [0, 1];
 	sodu_2[3] = [1, 0];
 
-	for (var r = 0; r < num_row; r++) {
-		if (r%2 == sodu_2[num_clear][0]) {
-			for (var c = 0; c < num_col; c++) {
-				if (c%2 == sodu_2[num_clear][1]) {
-					z[pics_index][r][c] = 0;
-					pic[pics_index][r][c].style.zIndex = z[pics_index][r][c];
+	for (var row = 0; row < num_row; row++) {
+		if (row%2 == sodu_2[num_clear][0]) {
+			for (var col = 0; col < num_col; col++) {
+				if (col%2 == sodu_2[num_clear][1]) {
+					z_index[pics_index][row][col] = 0;
+					pic[pics_index][row][col].style.zIndex = z_index[pics_index][row][col];
 				}
 			}
 		}
@@ -163,10 +164,10 @@ function clear_z() {
 
 		for (var g = 0; g < num_pic; g++) {
 			if (pics_index != g) {
-				for (var r = 0; r < num_row; r++) {
-					for (var c = 0; c < num_col; c++) {
-						z[g][r][c]++;
-						pic[g][r][c].style.zIndex = z[g][r][c];
+				for (var row = 0; row < num_row; row++) {
+					for (var col = 0; col < num_col; col++) {
+						z_index[g][row][col]++;
+						pic[g][row][col].style.zIndex = z_index[g][row][col];
 					}
 				}
 			}
@@ -197,12 +198,12 @@ function increase_z() {
 	sodu_2[2] = [1, 1];
 	sodu_2[3] = [0, 0];
 
-	for (var r = 0; r < num_row; r++) {
-		if (r%2 == sodu_2[num_increase][0]) {
-			for (var c = 0; c < num_col; c++) {
-				if (c%2 == sodu_2[num_increase][1]) {
-					z[pics_index - 1][r][c] = num_pic - 1;
-					pic[pics_index - 1][r][c].style.zIndex = z[pics_index - 1][r][c];
+	for (var row = 0; row < num_row; row++) {
+		if (row%2 == sodu_2[num_increase][0]) {
+			for (var col = 0; col < num_col; col++) {
+				if (col%2 == sodu_2[num_increase][1]) {
+					z_index[pics_index - 1][row][col] = num_pic - 1;
+					pic[pics_index - 1][row][col].style.zIndex = z_index[pics_index - 1][row][col];
 				}
 			}
 		}
@@ -228,10 +229,10 @@ function increase_z() {
 
 function fast_change(pic_show) {
     if (timer_Flag == 0) {
-	for (var r = 0; r < num_row; r++) {
-		for (var c = 0; c < num_col; c++) {				
-			z[pic_show][r][c] = num_pic - 1;
-			pic[pic_show][r][c].style.zIndex = z[pic_show][r][c];				
+	for (var row = 0; row < num_row; row++) {
+		for (var col = 0; col < num_col; col++) {				
+			z_index[pic_show][row][col] = num_pic - 1;
+			pic[pic_show][row][col].style.zIndex = z_index[pic_show][row][col];				
 		}		
 	}
 	pics_index = pic_show;
@@ -245,10 +246,10 @@ function fast_change(pic_show) {
 			x = 0;
 		}
 		
-		for (var r = 0; r < num_row; r++) {
-			for (var c = 0; c < num_col; c++) {				
-				z[x][r][c] = num_pic - 2 - g;
-				pic[x][r][c].style.zIndex = z[x][r][c];				
+		for (var row = 0; row < num_row; row++) {
+			for (var col = 0; col < num_col; col++) {				
+				z_index[x][row][col] = num_pic - 2 - g;
+				pic[x][row][col].style.zIndex = z_index[x][row][col];				
 			}		
 		}
 	}

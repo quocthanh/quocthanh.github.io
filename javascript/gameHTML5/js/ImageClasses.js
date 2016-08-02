@@ -255,7 +255,8 @@ if that, erase and reset the monster
 */
 Static_Image.prototype.checkOut = function() {
 
-	if ((this.right < 0) ||	(this.left > canvas.width) || (this.top > canvas.height) || (this.bottom < 0)) {
+	if ((this.right < 0) ||	(this.left > canvas.width) || 
+	   (this.top > canvas.height) || (this.bottom < 0)) {
 		this.isSelected = false;
 		this.cflag      = 0;
 		this.numMove = 0;
