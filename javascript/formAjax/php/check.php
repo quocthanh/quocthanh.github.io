@@ -36,10 +36,10 @@ if ($name !== "") {
 }
 
 if ($flag == 1) {
-    echo true; //username existed
+    echo "true"; //username existed
 } else {
-    echo false;
-    $sql = "INSERT INTO table_1 (userName)
+    echo "false";
+    $sql = "INSERT INTO table_1 (userName) //create new username
     VALUES ('$name')";
 
     $conn->query($sql);

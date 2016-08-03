@@ -27,7 +27,7 @@ function createMonster() {
 function createStageName() {
 	var i = 0;
 
-	cList.addStage("Stage 1");
+	cList.addStage("Stage");
 	cList.StageList[i].minMonsterNum = 1;
 	cList.StageList[i].maxMonsterNum = 8;
 	cList.StageList[i].bossScore = 2;
@@ -133,6 +133,7 @@ function setFlags() {
 
 		cList.StageList[cList.currentStage].bossScore = 2;
 		list.items[cList.currentStage].clickNum = 3;
+		cList.StageList[cList.currentStage].stgNum = 1;
 }
 
 /*set start_Flag to run main process to draw game

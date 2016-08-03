@@ -76,6 +76,6 @@ function process() {
 		drawGame();
 	}
     }
-   
+
     req(process);
 }

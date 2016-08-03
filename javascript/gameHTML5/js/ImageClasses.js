@@ -123,9 +123,13 @@ Sprite_Image.prototype.clickReact = function(x, y) {
 		list.selectNum = cList.StageList[cList.currentStage].minMonsterNum;
 
 		cList.StageList[cList.currentStage].bossScore += 2;
+		cList.StageList[cList.currentStage].stgNum++;
 		this.clickNum++;
-	}
 
+		start_Flag = 1;
+		control_Flag = 1;
+		g_Flag = 0;
+	}
 };
 
 Sprite_Image.prototype.reset = function() {
@@ -458,6 +462,8 @@ function Stage() {
 
 	this.bossScore = 0;
 	this.winScore = 0;
+
+	this.stgNum = 1;
 };
 
 /*draw, notify a new stage
@@ -472,7 +478,7 @@ Stage.prototype.draw = function(context) {
 	context.font = "50px Arial";
 	context.fillStyle = "coral";
 	context.textAlign = "center";
-	context.fillText(this.text, this.px, this.py);
+	context.fillText(this.text + " " + this.stgNum, this.px, this.py);
 
 	context.globalAlpha = 1;
 	context.restore();
@@ -498,7 +504,7 @@ Stage.prototype.change = function(context) {
 
 	if (this.opa < 0) {
 		this.opa = 1;
-		this.isSelected = false;
+		//this.isSelected = false;
 		control_Flag = 0;
 		g_Flag = 1;
 	}

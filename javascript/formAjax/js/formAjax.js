@@ -19,7 +19,7 @@ function submit_func() {
 
 		xhttp.onreadystatechange = function() { //run when receive response from server
 			if (xhttp.readyState == 4 && xhttp.status == 200) {
-				if (xhttp.responseText == true) {
+				if (xhttp.responseText == "true") {
 					document.getElementById("name_notify").innerHTML = "This name's already existed!";
 				} else {
 					document.getElementById("name_notify").innerHTML = "Congrat! Your account was created";
@@ -27,7 +27,7 @@ function submit_func() {
 			}
 		}
 
-		xhttp.open("GET", "http://blabla.freevnn.com/formAjax/php/check.php?name=" + name, true);
+		xhttp.open("GET", "http://blabla.freevnn.com/check_db/check.php?name=" + name, true);
 		xhttp.send();
 	}
 }
@@ -75,8 +75,9 @@ function check_password() {
 
 function check_email() {
 	var em = document.getElementById("user_email").value;
+	var emailReg = /[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/;
 
-	if (em.indexOf("@") > 0 && em.indexOf(".") > 0) {
+	if (em.search(emailReg) >= 0) {
 		document.getElementById("email_notify").innerHTML = "";
 		return true;
 	} else {

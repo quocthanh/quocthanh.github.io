@@ -1,5 +1,5 @@
 fieldset {
-	border: solid 2px #deb887;
+	border: solid 2px burlywood;
 }
 legend {
 	font-weight: bold;
@@ -20,12 +20,12 @@ legend {
 }
 #info input {
 	height: 20px;
-	border: solid  2px #deb887;
+	border: solid  2px burlywood;
 }
 #info #ajax_sub, #info #ajax_ref {
 	font-weight: bold;
 	height: 40px;
 	margin-right: 10px;
-	background-color: #deb887;
+	background-color: burlywood;
 	opacity: 0.8;
 }
