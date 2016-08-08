@@ -1997,6 +1997,54 @@ Quoc Thanh
 	font-weight: bold;
 }
 
+/*facial-------------------*/
+
+.facial_qt p {
+	text-align: left;
+}
+
+.facial_qt .center {
+	text-align: center;
+}
+
+.facial_1_qt {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+}
+
+.facial_qt .button {
+	margin: 20px;
+	display: block;
+}
+
+.facial_box_qt {
+	overflow: auto;
+}
+
+.facial_box_qt img {
+	float: left;
+	margin-right: 10px;
+}
+
+
+
 /*===========
 end Quoc Thanh
 =============*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
