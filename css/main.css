@@ -1,4 +1,4 @@
-#html_container, #js_container, #jQ_container {
+#html_container, #js_container, #jQ_container, #rwd_container {
 	width: 600px;
 	display: flex;
 	justify-content: space-around;
