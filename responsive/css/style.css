@@ -2028,23 +2028,34 @@ Quoc Thanh
 }
 
 
+/*slim-------------------*/
+.slim_qt p {
+	text-align: left;
+}
 
+.slim_qt .center {
+	text-align: center;
+}
+
+.slim_1_qt {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+}
+
+.slim_qt .button {
+	margin: 20px;
+	display: block;
+}
+
+.slim_box_qt {
+	overflow: auto;
+}
+
+.slim_box_qt img {
+	float: left;
+	margin-right: 10px;
+}
 /*===========
 end Quoc Thanh
 =============*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
