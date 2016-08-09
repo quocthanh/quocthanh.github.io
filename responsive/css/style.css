@@ -2150,6 +2150,26 @@ Quoc Thanh
 	justify-content: space-around;
 	margin-bottom: 10px;
 }
+
+/*acty-------------*/
+
+.acty_qt p {
+	text-align: left;
+}
+.acty_qt img {
+	max-width: 100%;
+}
+.acty_text_qt {
+	width: 100%;
+	max-width: 500px;
+}
+.acty_box_1_qt {
+	margin-bottom: 30px;
+}
+.acty_box_2_qt {
+	width: 100%;
+	max-width: 400px;
+}
 /*===========
 end Quoc Thanh
 =============*/
