@@ -2170,6 +2170,105 @@ Quoc Thanh
 	width: 100%;
 	max-width: 400px;
 }
+
+/*hair_growth--------------*/
+
+.hairG_qt p {
+	text-align: left;
+}
+
+.hairG_qt .center {
+	text-align: center;
+}
+.hairG_1_qt {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 30px;
+}
+.hairG_qt .button {
+	margin: 20px;
+	display: block;
+}
+
+.hairG_box_qt {
+	overflow: auto;
+}
+
+.hairG_box_qt img {
+	float: left;
+	margin-right: 10px;
+}
+
+/*case------------------*/
+
+.case_qt p {
+	text-align: left;
+}
+.case_qt img {
+	max-width: 100%;
+}
+.case_qt .margin_left {
+	margin-left: 10px;
+}
+.case_1_qt {
+	width: 70%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+.case_2_qt {
+	text-align: left;
+}
+.case_2_qt img {
+	margin: 10px;
+}
+
+/*qa-----------------------*/
+.qa_qt p {
+	text-align: left;
+}
+.qa_qt .grey_background {
+	background-color: #A0A0A0;
+}
+.qa_nav_qt a {
+	display: inline-block;
+	margin: auto;
+}
+.qa_ques_qt {
+	margin-bottom: 20px;
+}
+.qa_1_qt {
+	margin-bottom: 20px;
+}
+.qa_1_qt ul {
+	list-style-position: inside;
+	list-style-image: url('../images/qa/vohinh_4.png');
+	text-align: left;
+}
+.qa_1_qt img {
+	vertical-align: middle;
+}
+
+
 /*===========
 end Quoc Thanh
 =============*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
