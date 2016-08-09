@@ -2056,6 +2056,54 @@ Quoc Thanh
 	float: left;
 	margin-right: 10px;
 }
+
+
+/*depilation---------*/
+
+.depilation_qt p {
+	text-align: left;
+}
+
+.depilation_qt .margin-bottom {
+	margin-bottom: 20px;
+}
+
+.depilation_qt .red {
+	color: red;
+}
+
+.depilation_qt .normal {
+	font-weight: normal;
+	font-size: 100%;
+}
+
+.depilation_qt .bold {
+	font-weight: bold;
+}
+
+.depilation_qt .center {
+	text-align: center;
+}
+
+.depilation_1_qt {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+}
+
+.depilation_qt .button {
+	margin: 20px;
+	display: block;
+}
+
+.depilation_box_qt {
+	overflow: auto;
+}
+
+.depilation_box_qt img {
+	float: left;
+	margin-right: 10px;
+}
 /*===========
 end Quoc Thanh
 =============*/
