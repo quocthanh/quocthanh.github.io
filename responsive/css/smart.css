@@ -723,6 +723,22 @@ Quoc Thanh
 .intro_6_qt {
 	text-align: center;
 }
+
+/*bihda--------------*/
+
+.bihda_qt .smart {
+	display: table-row;
+}
+.bihda_qt .pc {
+	display: none;
+}
+
+.bihda_box_3_qt {
+	width: 100%;
+	max-width: 305px;
+	flex-wrap: wrap;
+	margin: 10px auto;
+}
 /*==============
 end Quoc Thanh
 ================*/

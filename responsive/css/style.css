@@ -2104,6 +2104,52 @@ Quoc Thanh
 	float: left;
 	margin-right: 10px;
 }
+
+/*bihda---------------*/
+
+.bihda_qt p {
+	text-align: left;
+}
+.bihda_qt img {
+	max-width: 100%;
+}
+.bihda_qt .red {
+	color: red;
+}
+.bihda_qt .center {
+	text-align: center;
+}
+.bihda_1_qt {
+	text-align: left;
+	width: 70%;
+	margin: auto;
+}
+
+.bihda_qt .button {
+	margin: 20px;
+	display: block;
+}
+
+.bihda_box_1_qt {
+	overflow: auto;
+}
+
+.bihda_box_1_qt img {
+	float: left;
+	margin-right: 10px;
+}
+
+.bihda_qt .smart {
+	display: none;
+}
+
+.bihda_box_3_qt {
+	display: flex;
+	align-items: center;
+	align-content: space-around;
+	justify-content: space-around;
+	margin-bottom: 10px;
+}
 /*===========
 end Quoc Thanh
 =============*/
