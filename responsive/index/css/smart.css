@@ -1,0 +1,22 @@
+@media screen and (max-width: 644px) {
+
+img {
+	max-width: 100%;
+}
+p, img, div, a {
+	margin: 0;
+}
+.float {
+	float: none;
+	display: inline-block;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.wrapper {
+	width: 100%;
+	text-align: center;
+}
+
+
+}

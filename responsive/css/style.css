@@ -2248,7 +2248,25 @@ Quoc Thanh
 .qa_1_qt img {
 	vertical-align: middle;
 }
-
+/*access------------------*/
+.access_qt img {
+	max-width: 100%;
+}
+.access_qt figure.map {
+	text-align: left;
+	max-width: 100%;
+	width: 517px;
+	margin: auto;
+}
+.access_qt .miniFig {
+	max-width: 100%;
+	width: 332px;
+	height: 300px;
+	text-align: left;
+	display: inline-block;
+	margin: 2px;
+	vertical-align: bottom;
+}
 
 /*===========
 end Quoc Thanh
