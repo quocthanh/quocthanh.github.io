@@ -3,7 +3,7 @@
 img {
 	max-width: 100%;
 }
-p, img, div, a {
+p, img, div, a, ul {
 	margin: 0;
 }
 .float {
@@ -18,5 +18,19 @@ p, img, div, a {
 	text-align: center;
 }
 
+.banner {
+	display: none;
+}
+.content_text {
+	width: 100%;
+	text-align: left;
+	margin-top: 10px;
+}
+.content_2_box {
+	margin: 5px;
+}
+.footer ul {
+	display: block;
+}
 
 }
