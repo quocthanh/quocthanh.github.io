@@ -733,13 +733,15 @@ Quoc Thanh
 	display: none;
 }
 
+.bihda_box_2_qt {
+	margin-bottom: 30px;
+}
 .bihda_box_3_qt {
 	width: 100%;
 	max-width: 305px;
 	flex-wrap: wrap;
-	margin: 10px auto;
+	margin: 30px auto;
 }
-
 /*case------------------*/
 
 .case_2_qt {

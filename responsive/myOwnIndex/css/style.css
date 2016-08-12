@@ -2,6 +2,7 @@ body {
 	font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
 	font-size: 13px;
 	line-height: 1.6em;
+	color: #73523f;
 	margin: 0;
 }
 p, img, div, ul {
@@ -14,17 +15,6 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
-
 .float_left {
 	float: left;
 }
@@ -63,13 +53,10 @@ a:hover {
 .button:hover {
 	opacity: 0.6;
 }
-
-
-
-
-
-
-
+.wrapper {
+	width: 960px;
+	margin: auto;
+}
 
 
 .header {
@@ -79,16 +66,6 @@ a:hover {
 	height: auto;
 	clear: both;
 }
-.wrapper {
-	width: 960px;
-	margin: auto;
-}
-
-
-
-
-
-
 
 
 /*menu--------------*/
@@ -119,7 +96,6 @@ a:hover {
 	padding-left: 4px;
 	background: url('../images/line_menu.jpg') no-repeat;
 	position: relative;
-	//border: 1px solid;
 }
 .menu > ul > li > a {
 	width: 100%;
@@ -207,13 +183,6 @@ li.menu_4:hover ul {
 }
 
 
-
-
-
-
-
-
-
 div.banner {
 	background:url(../images/bg_banner.jpg);
 }
@@ -224,9 +193,6 @@ div.slide {
 .bxslider {
 	padding: 0;
 }
-
-
-
 
 /*section----------------*/
 /*content----------------*/
@@ -239,7 +205,6 @@ div.slide {
 	height: auto;
 	min-height: 250px;
 }
-
 .title {
 	background: url(../images/line_title.jpg) no-repeat left bottom;
 	height: 30px;
@@ -279,23 +244,11 @@ div.slide {
 	padding-bottom: 10px;
 	margin-left: 10px;
 	margin-top: 10px;
+	text-align: left;
 }
 .index_1 * {
 	display: inline-block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*aside---------*/
 .aside {
 	width: 230px;
@@ -352,21 +305,6 @@ div.slide {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer {
 	clear: both;
 	background: url(../images/footer_bg.jpg) left top;
@@ -401,8 +339,6 @@ div.slide {
 	list-style-image: url("../images/footer_bullet_2.png");
 }
 
-
-
 .copyright {
 	text-align: center;
 	background: #f88e01;
@@ -411,26 +347,25 @@ div.slide {
 	font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#page-top {
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	padding-top: 20px;
+	background: #d88e01;
+	font-weight: bold;
+	border-radius: 8px;
+	position: fixed;
+	z-index: 100000;
+	right: 10px;
+	bottom: 10px;
+}
+#page-top a {
+	color: #fff;
+}
+#page-top:hover {
+	cursor: pointer;
+}
+#page-top a:hover {
+	text-decoration: none;
+}

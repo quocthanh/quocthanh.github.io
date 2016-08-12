@@ -2172,7 +2172,9 @@ Quoc Thanh
 }
 
 /*hair_growth--------------*/
-
+.hairG_qt img {
+	max-width:100%;
+}
 .hairG_qt p {
 	text-align: left;
 }
@@ -2195,11 +2197,10 @@ Quoc Thanh
 	overflow: auto;
 }
 
-.hairG_box_qt img {
+.hairG_box_qt > img {
 	float: left;
 	margin-right: 10px;
 }
-
 /*case------------------*/
 
 .case_qt p {
