@@ -19,7 +19,7 @@
     $x = array("a" => "red", "b" => "green");
     $y = array("c" => "blue", "d" => "yellow");
 
-    var_dump($x + $y); // union of $x and $y
+    var_dump($x + $y);
 
     echo '<br><br>';
     $arr1 = [1, 2, 3];
@@ -37,33 +37,4 @@
     $x = array("a" => "red", "b" => "green");
     $y = array("a" => "blue", "d" => "yellow");
 
-    var_dump($x + $y); // union of $x and $y
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    var_dump($x + $y);

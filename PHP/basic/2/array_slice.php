@@ -48,26 +48,3 @@
     //$newArr = [3 => 'newValue'];
     $arr4 = $arr2 + $newArr + $arr3;
     print_r($arr4);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

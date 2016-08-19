@@ -37,27 +37,3 @@
     echo '<br>';
     $arr = array_reverse($arr, true);
     var_dump($arr);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
