@@ -47,28 +47,28 @@
             echo 'Not found';
         }
 
-        //merge array 2 and array 3 => arrayM
+        //merge array 2 and array 3 => arrayMerge
         echo '<br><b>Cau 2:</b><br>';
-        $arrayM = array_unique(array_merge($array2, $array3));
-        echo implode(', ', $arrayM);
+        $arrayMerge = array_unique(array_merge($array2, $array3));
+        echo implode(', ', $arrayMerge);
 
-        //print values of (*) (arrayM) whose sum of digits divide 2 = 0
+        //print values of (*) (arrayMerge) whose sum of digits divide 2 = 0
         echo '<br><b>Cau 3:</b><br>';
-        $array_tmp = array_filter($arrayM, 'divide2');
-        echo implode(', ', $array_tmp);
+        $modTwo = array_filter($arrayMerge, 'divide2');
+        echo implode(', ', $modTwo);
 
-        //print values of array 1 that exist in (*) (arrayM) in ascending order
+        //print values of array 1 that exist in (*) (arrayMerge) in ascending order
         echo '<br><b>Cau 4:</b><br>';
-        $array_tmp = array_intersect($array1, $arrayM);
-        sort($array_tmp);
-        echo implode(', ', $array_tmp);
+        $intersectArray = array_intersect($array1, $arrayMerge);
+        sort($intersectArray);
+        echo implode(', ', $intersectArray);
 
         //print values of array 1 whose keys is not in (*) in descending order
         echo '<br><b>Cau 5:</b><br>';
-        $array_tmp = array_flip($arrayM);
-        $array_tmp = array_diff_key($array1, $array_tmp);
-        rsort($array_tmp);
-        echo implode(', ', $array_tmp);
+        $diffKey = array_flip($arrayMerge);
+        $diffKey = array_diff_key($array1, $diffKey);
+        rsort($diffKey);
+        echo implode(', ', $diffKey);
     }
 /**
  * test if $num divide 2 = 0
