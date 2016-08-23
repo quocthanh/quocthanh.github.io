@@ -8,17 +8,17 @@
  * find a string in another string,
  * if found return true, else return false.
  *
- * @param string $str1
- * @param string $str2
+ * @param string $str
+ * @param string $subStr
  *
  * @return bool
  */
-    function isInString($str1, $str2)
+    function isInString($str, $subStr)
     {
         $argList = func_get_args();
-        argsTypeValidate($argList, 'string');
+        checkArgsType($argList, 'string');
 
-        return strpos($str1, $str2) !== false;
+        return strpos($str, $subStr) !== false;
     }
     echo '<b>Cau 2</b><br>';
     var_dump(isInString('aa bb cc', 'aa'));
@@ -35,7 +35,7 @@
     function isMultiByte($str)
     {
         $argList = func_get_args();
-        argsTypeValidate($argList, 'string');
+        checkArgsType($argList, 'string');
 
         return mb_strlen($str, 'UTF-8') < strlen($str);
     }
@@ -64,10 +64,10 @@
  * @throws LogicException
  *
  */
-    function argsTypeValidate($argList, $type)
+    function checkArgsType($argList, $type)
     {
         $invalidParameters = array_filter($argList, function($param) use ($type) {
-            return gettype($param) !== $type ? true : false;
+            return gettype($param) !== $type;
         });
         if (count($invalidParameters) > 0) {
             $msg = 'Invalid parameter';
