@@ -17,22 +17,19 @@
  */
     function arrayPractice($array1, $array2, $array3)
     {
-        try {
-            $argList = func_get_args();
+        $argList = func_get_args();
 
-            $invalidParameters = array_filter($argList, 'isNotArray');
-            if (count($invalidParameters) > 0) {
-                $msg = 'Invalid parameter';
-                foreach ($invalidParameters as $key => $value) {
-                    $msg .= ' ' . ($key + 1) . ',';
-                }
-                $msg = substr($msg, 0, -1);
-                throw new LogicException($msg);
+        $invalidParameters = array_filter($argList, function ($param) {
+            return !is_array($param);
+        });
+
+        if (count($invalidParameters) > 0) {
+            $msg = 'Invalid parameter';
+            foreach ($invalidParameters as $key => $value) {
+                $msg .= ' ' . ($key + 1) . ',';
             }
-        }
-        catch (Exception $e) {
-            echo '<b>LogicException:</b> ' . $e->getMessage();
-            die();
+            $msg = substr($msg, 0, -1);
+            throw new LogicException($msg);
         }
 
         //find number 1 in array 1
@@ -74,17 +71,6 @@
     function isSumOfDigitsEven($num)
     {
         return array_sum(str_split($num)) % 2 === 0;
-    }
-/**
- * return true if input is not a array
- *
- * @param mixed $input
- *
- * @return bool
- */
-    function isNotArray($input)
-    {
-        return !is_array($input);
     }
 
     arrayPractice([1, -3, 0, 10], [1, 2, 3], [3, 11, 5, 7]);
