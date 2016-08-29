@@ -17,16 +17,12 @@ if (move_uploaded_file($_FILES['imgFile']['tmp_name'], $uploadFile)) {
 
 echo '<h2>Your Files</h2>';
 
-$dir = 'uploads';
-
 //open and read the uploads dir, show files uploaded
-if (is_dir($dir)) {
-    if ($dirHandle = opendir($dir)) {
-        while (($file = readdir($dirHandle)) !== false) {
-            if ($file != '.' && $file != '..') {
-                echo "<a href='$dir/$file'>$file</a>" . '<br>';
-            }
-        }
-        closedir($dirHandle);
-    }
+$dirName = 'uploads';
+//a class used to access filesystem
+$dirObj = new FilesystemIterator($dirName);
+
+foreach ($dirObj as $fileInfo) {
+    $fileName = $fileInfo->getFilename();
+    echo "<a href='$dirName/$fileName'>$fileName</a>" . '<br>';
 }
