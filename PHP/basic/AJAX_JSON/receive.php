@@ -20,7 +20,6 @@ if (empty($_GET['input'])) {
 $input = $_GET['input'];
 
 $input = json_decode($input);
-
 if (json_last_error() !== JSON_ERROR_NONE) {
     throw new LogicException('JSON error: ' . json_last_error_msg());
 }
@@ -31,5 +30,8 @@ $response = array(
 );
 
 $response = json_encode($response);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    throw new LogicException('JSON error: ' . json_last_error_msg());
+}
 
 echo $response;
