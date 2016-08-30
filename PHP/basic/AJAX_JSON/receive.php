@@ -21,11 +21,14 @@ $input = $_GET['input'];
 
 $input = json_decode($input);
 
-if (!$input) {
-    throw new LogicException('Invalid JSON');
+if (json_last_error() !== JSON_ERROR_NONE) {
+    throw new LogicException('JSON error: ' . json_last_error_msg());
 }
 
-$response = array('sum' => array_sum($input), 'product' => array_product($input));
+$response = array(
+    'sum' => array_sum($input),
+    'product' => array_product($input)
+);
 
 $response = json_encode($response);
 
