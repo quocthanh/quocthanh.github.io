@@ -2,6 +2,10 @@
 /**
  * receive file uploaded from client
  */
+//check request method
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    throw new LogicException('Not POST Request!!!');
+}
 echo '<h2>This is from PHP server</h2>' . '<br>';
 
 //directory store files

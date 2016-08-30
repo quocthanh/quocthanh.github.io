@@ -3,6 +3,9 @@
 if (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
     throw new LogicException('Not AJAX Request!!!');
 }
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    throw new LogicException('Not GET Request!!!');
+}
 
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 echo 'Hello guys!' . PHP_EOL;

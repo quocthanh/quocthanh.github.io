@@ -22,8 +22,7 @@ function upload() {
         type: 'POST',
         beforeSend: function() {
             //clear message
-            $('.errorMessage').text('');
-            $('#response').text('');
+            $('.errorMessage, #response').text('');
         },
         success: function(response) {
             $('#response').html(response);

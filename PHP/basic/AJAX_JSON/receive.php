@@ -4,6 +4,15 @@
  * then calculate sum and product
  * send back to client
  */
+//check whether request method is AJAX
+if (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+    throw new LogicException('Not AJAX Request!!!');
+}
+//check request method
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    throw new LogicException('Not GET Request!!!');
+}
+
 if (empty($_GET['input'])) {
     echo 'Nothing received!!!';
     exit;
@@ -12,10 +21,12 @@ $input = $_GET['input'];
 
 $input = json_decode($input);
 
-if ($input) {
-    $result = array(array_sum($input), array_product($input));
-
-    $result = json_encode($result);
-
-    echo $result;
+if (!$input) {
+    throw new LogicException('Invalid JSON');
 }
+
+$response = array('sum' => array_sum($input), 'product' => array_product($input));
+
+$response = json_encode($response);
+
+echo $response;

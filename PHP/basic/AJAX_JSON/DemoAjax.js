@@ -8,9 +8,7 @@ var inputArray;
 
 function send() {
     //clear messages
-    $('#error').text('');
-    $('#sum').text('');
-    $('#product').text('');
+    $('#error, #sum, #product').text('');
 
     if (!checkAndParseArray()) {
         $('#error').text("Hey! Don't try to fool me!!!");
@@ -18,8 +16,8 @@ function send() {
     }
     $.get("receive.php", "input=" + inputArray, function(data) {
         data = JSON.parse(data);
-        $('#sum').text('Sum: ' + data[0]);
-        $('#product').text('Product: ' + data[1]);
+        $('#sum').text('Sum: ' + data['sum']);
+        $('#product').text('Product: ' + data['product']);
     });
 }
 
