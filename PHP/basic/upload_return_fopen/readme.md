@@ -14,12 +14,16 @@
 **fread(openFile, size)**:
 
 đọc 1 file đã được mở với số byte đc chỉ ra
+
 VD: fread($myfile,filesize("webdictionary.txt")); đọc toàn bộ file
 
 **filesize(filename)**:
 
 trả về kích thước của file đc chỉ ra, nếu có lỗi thì trả về false
-kết quả của hàm này được lưu lại, dùng clearstatcache() cho lần gọi sau, ngoài hàm này thì còn 1 số hàm cũng đc cach: stat(), file_exists, is_file, is_dir, …
+
+kết quả của hàm này được lưu lại,
+
+dùng clearstatcache() cho lần gọi sau, ngoài hàm này thì còn 1 số hàm cũng đc cach: stat(), file_exists, is_file, is_dir, …
 
 **fgets(name)**:
 
