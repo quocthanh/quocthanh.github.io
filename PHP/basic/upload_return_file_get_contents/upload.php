@@ -10,7 +10,6 @@ if (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     throw new LogicException('Not POST Request!!!');
 }
-$response = array();
 //check file is uploaded successfully
 if (!is_uploaded_file($_FILES['imgFile']['tmp_name'])) {
     sendFailRes();
@@ -33,10 +32,8 @@ sendSuccessRes($uploadFile);
  */
 function sendFailRes()
 {
-    global $response;
     $response['verify'] = 'Upload Fail!!!';
-    $response = json_encode($response);
-    echo $response;
+    echo json_encode($response);
     exit;
 }
 /**
@@ -50,7 +47,6 @@ function sendFailRes()
  */
 function sendSuccessRes($file)
 {
-    global $response;
     $response['verify'] = 'Successfully upload';
 
     //read the content of file
