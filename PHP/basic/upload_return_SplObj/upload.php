@@ -32,6 +32,7 @@ sendSuccessRes($uploadFile);
  */
 function sendFailRes()
 {
+    $response = array();
     $response['verify'] = 'Upload Fail!!!';
     echo json_encode($response);
     exit;
@@ -47,6 +48,7 @@ function sendFailRes()
  */
 function sendSuccessRes($file)
 {
+    $response = array();
     $response['verify'] = 'Successfully upload';
 
     //read the content of file
