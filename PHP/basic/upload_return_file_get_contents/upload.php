@@ -54,8 +54,7 @@ function sendSuccessRes($file)
     $response['verify'] = 'Successfully upload';
 
     //read the content of file
-    $fileObj = new SplFileObject($file, 'r');
-    $fileCont = $fileObj->fread($fileObj->getSize());
+    $fileCont = file_get_contents($file);
     $response['content'] = nl2br($fileCont);
 
     $responseJSON = json_encode($response);

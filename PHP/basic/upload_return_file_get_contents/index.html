@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File - Return content</title>
+    <meta charset="UTF-8">
+    <link href="inputStyle.css" type="text/css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="uploadAjax.js"></script>
+</head>
+
+<body>
+    <div id="form_wrapper">
+        <form enctype="multipart/form-data">
+            <p>Chọn file để upload:</p>
+            <input type="file" name="imgFile" id="imgFile"><span class="errorMessage"></span>
+            <br>
+            <input type="button" value="--Upload--" name="submit" id="submit" onclick="upload()">
+        </form>
+        <h3>Progress Bar</h3>
+        <div id="Bar">
+            <div id="Progress">
+                <div id="percent">
+                0%
+                </div>
+            </div>
+        </div>
+        <p id="verify"></p>
+    </div>
+    <div id="content_wrapper">
+        <h3>Your File Content</h3>
+        <p id="content"></p>
+    </div>
+</body>
+</html>
