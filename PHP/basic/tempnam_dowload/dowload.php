@@ -25,3 +25,6 @@ header("Content-Disposition: attachment; filename=$baseName");
 
 $fileCont = file_get_contents($newName);
 echo $fileCont;
+
+//delete file
+unlink($newName);
