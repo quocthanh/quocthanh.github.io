@@ -8,6 +8,7 @@ var cookieArr = document.cookie.split(';');
 var length = cookieArr.length;
 for (var i = 0; i < length; i++) {
     var cookie = cookieArr[i];
+
     //erase white spaces
     while (cookie.charAt(0) === ' ') {
         cookie = cookie.substring(1);
@@ -18,5 +19,6 @@ for (var i = 0; i < length; i++) {
         document.getElementById("check").innerHTML =
         'Cookie "msg" is set' + '<br>' +
         'Value: ' + cookie.substring(4);
+        break;
     }
 }
