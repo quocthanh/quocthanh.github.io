@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+    <script src="cookie.js"></script>
+    <script>
+        deleteCookie('user', '/');
+    </script>
+</head>
+
+<body>
+    <p id="check"></p>
+    <script>
+        document.getElementById('check').innerHTML = document.cookie;
+    </script>
+</body>
