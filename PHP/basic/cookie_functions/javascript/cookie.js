@@ -8,7 +8,8 @@
  *
  * @return void
  */
-function setCookie(key, value, expired_seconds, path) {
+function setCookie(key, value, expired_seconds, path)
+{
     //check input
     try {
         if ((typeof key) !== 'string') {
@@ -17,13 +18,14 @@ function setCookie(key, value, expired_seconds, path) {
         if ((typeof value) !== 'string' && (typeof value) !== 'number') {
             throw 'Invalid value!!!';
         }
-        if (expired_seconds !== undefined &&
+        if (
+            expired_seconds !== undefined &&
             expired_seconds !== null &&
-            (typeof expired_seconds) !== 'number') {
+            (typeof expired_seconds) !== 'number'
+        ) {
             throw 'Invalid expires!!!';
         }
-    }
-    catch(err) {
+    } catch (err) {
         console.log(err);
         return;
     }
@@ -53,14 +55,14 @@ function setCookie(key, value, expired_seconds, path) {
  * @return string, if key  not found
  * return empty
  */
-function getCookie(key) {
+function getCookie(key)
+{
     //check input
     try {
         if ((typeof key) !== 'string') {
             throw 'invalid key';
         }
-    }
-    catch(err) {
+    } catch (err) {
         console.log(err);
         return;
     }
@@ -92,14 +94,14 @@ function getCookie(key) {
  *
  * @return void
  */
-function deleteCookie(key, path) {
+function deleteCookie(key, path)
+{
     //check input
     try {
         if ((typeof key) !== 'string') {
             throw 'invalid key!!!';
         }
-    }
-    catch(err) {
+    } catch (err) {
         console.log(err);
         return;
     }
