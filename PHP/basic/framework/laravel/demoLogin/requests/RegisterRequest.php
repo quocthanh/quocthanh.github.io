@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UserRequest extends Request
+class RegisterRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,10 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'userName' => 'required|min:4|alpha_num',
-            'userPass' => 'required|min:6|alpha_num'
+            'userName'  => 'required|min:4|alpha_num|unique:user_infor,name',
+            'userPass'  => 'required|min:6|alpha_num|confirmed',
+            'userPass_confirmation'  => 'required',
+            'userEmail' => 'required|email|unique:user_infor,email'
         ];
     }
 }

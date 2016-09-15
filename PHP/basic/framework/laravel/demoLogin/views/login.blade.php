@@ -4,19 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sports</title>
-    <style>
-        h1 {
-            background: Blue;
-            text-align: center;
-            color:white;
-        }
-        .text_right {
-            text-align: right;
-        }
-        #msg {
-            color:red;
-        }
-    </style>
+    <link href="{!! url('public/SportNews/css/login.css') !!}" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -48,6 +36,7 @@
             </tr>
         </table>
     </form>
+    <hr />
     @if (Session::has('message'))
         <div id='msg'>
             {!! Session::get('message') !!}
