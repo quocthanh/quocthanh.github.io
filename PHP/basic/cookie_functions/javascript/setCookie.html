@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+    <script src="cookie.js"></script>
+    <script>
+        setCookie('user', 'quoc thanh', null, '/');
+        setCookie('age', 24, (new Date()).getTime()/1000 + 7*24*60*60, '/');
+        console.log(getCookie('user'));
+        console.log(getCookie('age'));
+    </script>
+</head>
+
+<body>
+    <p id="check"></p>
+    <script>
+        document.getElementById('check').innerHTML = document.cookie;
+    </script>
+</body>
+
+</html>

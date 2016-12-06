@@ -1,0 +1,29 @@
+body {
+    background: #402020;
+}
+#header {
+    overflow: auto;
+}
+h1 {
+    background: indigo;
+    text-align: center;
+    color:white;
+    height: 60px;
+    padding-top: 20px;
+}
+#logout {
+    float: right;
+    color: white;
+}
+#content {
+    display: flex;
+    justify-content: space-between;
+}
+#cont_1 {
+    width: 300px;
+    background: white;
+    padding: 10px;
+}
+#cont_1 img {
+    width: 300px;
+}

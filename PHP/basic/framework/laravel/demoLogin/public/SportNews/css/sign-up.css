@@ -1,0 +1,13 @@
+h1 {
+    background: blue;
+    text-align: center;
+    color:white;
+}
+.text_right {
+    text-align: right;
+}
+#msg {
+    color:green;
+    font-weight: bold;
+    font-size: 120%;
+}

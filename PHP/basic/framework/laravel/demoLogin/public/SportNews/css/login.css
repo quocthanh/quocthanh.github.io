@@ -1,0 +1,11 @@
+h1 {
+    background: Blue;
+    text-align: center;
+    color:white;
+}
+.text_right {
+    text-align: right;
+}
+#msg {
+    color:red;
+}

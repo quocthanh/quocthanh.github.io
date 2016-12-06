@@ -1,0 +1,42 @@
+input {
+    margin-bottom: 20px;
+}
+.errorMessage {
+    color: red;
+}
+#submit {
+    width: 85px;
+    height: 30px;
+    background: red;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px;
+}
+#submit:hover {
+    cursor: pointer;
+    background: #ff5000;
+}
+#Bar {
+    width: 400px;
+    height: 40px;
+    background: #ddd;
+}
+#Progress {
+    width: 0%;
+    height: 100%;
+    background: #4CAF50;
+}
+#percent {
+    width: 400px;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 120%;
+    font-weight: bold;
+    padding-top: 7px;
+}
+#content_wrapper {
+    display: none;
+    padding-left: 10px;
+    border: 4px dotted green;
+    background: #eafffa;
+}
