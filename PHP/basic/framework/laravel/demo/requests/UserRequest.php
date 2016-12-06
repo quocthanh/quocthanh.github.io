@@ -36,12 +36,12 @@ class UserRequest extends Request
     public function messages()
     {
         return [
-            'userName.required' => 'Không được bỏ trống',
-            'userName.min' => 'Số ký tự ít nhất là 4',
-            'userName.alpha_num' => 'Không được chứa ký tự đặc biệt',
-            'userPass.required' => 'Không được bỏ trống',
-            'userPass.min' => 'Số ký tự ít nhất là 6',
-            'userPass.alpha_num' => 'Không được chứa ký tự đặc biệt'
+            'userName.required'     => 'Không được bỏ trống',
+            'userName.min'          => 'Số ký tự ít nhất là 4',
+            'userName.alpha_num'    => 'Không được chứa ký tự đặc biệt',
+            'userPass.required'     => 'Không được bỏ trống',
+            'userPass.min'          => 'Số ký tự ít nhất là 6',
+            'userPass.alpha_num'    => 'Không được chứa ký tự đặc biệt'
         ];
     }
 }

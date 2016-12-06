@@ -102,13 +102,13 @@ Route::get('url/url', function() {
 /*SCHEMA BUILDER -----------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------*/
 Route::get('schema/create', function() {
-    /*Schema::create('table_1', function($table) {
+    Schema::create('table_1', function($table) {
         $table->increments('id');
         $table->string('ten');
         $table->integer('weight');
         $table->text('cmt')->nullable();
         $table->timestamps();
-    });*/
+    });
     Schema::create('courses', function($table) {
         $table->increments('id');
         $table->string('MonHoc');
@@ -229,9 +229,9 @@ Route::get('query/limit', function() {
 });
 
 Route::get('query/lists', function() {
-    //$data = DB::table('courses')->where('MonHoc', 'Aura')->value('GiaTien');
-    //$data = DB::table('courses')->where('MonHoc', 'Aura')->select('GiaTien')->get();
-    //$data = DB::table('courses')->lists('GiangVien');
+    $data = DB::table('courses')->where('MonHoc', 'Aura')->value('GiaTien');
+    $data = DB::table('courses')->where('MonHoc', 'Aura')->select('GiaTien')->get();
+    $data = DB::table('courses')->lists('GiangVien');
     $data = DB::table('courses')->select('GiangVien')->get();
 
     echo '<pre>';
@@ -334,21 +334,3 @@ Route::get('SportNews/SignUp', function() {
     return view('SportNews.signup');
 });
 Route::post('SportNews/MemberRegister', 'SportNews\SportNewsController@register');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

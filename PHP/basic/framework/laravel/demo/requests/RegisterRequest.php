@@ -24,10 +24,10 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
-            'userName'  => 'required|min:4|alpha_num|unique:user_infor,name',
-            'userPass'  => 'required|min:6|alpha_num|confirmed',
-            'userPass_confirmation'  => 'required',
-            'userEmail' => 'required|email|unique:user_infor,email'
+            'userName'              => 'required|min:4|alpha_num|unique:user_infor,name',
+            'userPass'              => 'required|min:6|alpha_num|confirmed',
+            'userPass_confirmation' => 'required',
+            'userEmail'             => 'required|email|unique:user_infor,email'
         ];
     }
 }
