@@ -30,7 +30,28 @@ class Bookmark extends Entity
      * @var array
      */
     protected $_accessible = [
-        '*' => true,
-        'id' => false
+        '*'             => true,
+        'id'            => false,
+        'tag_string'    => true,
     ];
+    /**
+     * no ideas
+     */
+    public function _getTagString()
+    {
+        if (isset($this->_properties['tag_string'])) {
+            return $this->properties['tag_string'];
+        }
+
+        if (empty($this->tags)) {
+            return '';
+        }
+
+        $tags = new Collection($this->tags);
+        $str = $tags->reduce(function($string, $tag) {
+            return $string . $tag->title . ', ';
+        }, '');
+
+        return trim($str, ', ');
+    }
 }

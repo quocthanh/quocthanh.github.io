@@ -103,4 +103,42 @@ class BookmarksTable extends Table
                 return $q->where(['Tags.title IN' => $options['tags']]);
             });
     }
+    /**
+     * no idea
+     */
+    public function beforeSave($event, $entity, $options)
+    {
+        if ($entity->tag_string) {
+            $entity->tag = $this->_buildTags($entity->tag_string);
+        }
+    }
+    /**
+     * no idea
+     */
+    public function _buildTags($tagString)
+    {
+        $newTags = array_map('trim', explode(',', $tagString));
+        $newTags = array_filter($newTags);
+        $newTags = array_unique($newTags);
+
+        $out = [];
+        $query = $this->Tags->find()
+            ->where(['Tags.title IN' => $newTags]);
+
+        foreach ($query->extract('title') as $existing) {
+            $index = array_search($existing, $newTags);
+            if ($index !== false) {
+                unset($newTags[$index]);
+            }
+        }
+
+        foreach ($query as $tag) {
+            $out[] = $tag;
+        }
+
+        foreach ($newTags as $tag) {
+            $out[] = $this->Tags->newEntity(['title' => tag]);
+        }
+        return $out;
+    }
 }
