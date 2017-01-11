@@ -27,6 +27,13 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
+    /**
+     *
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['view', 'index', 'display']);
+    }
 
     /**
      * Initialization hook method.
@@ -44,7 +51,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
-        $this->loadComponent('Auth', [
+        /*$this->loadComponent('Auth', [
             'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
@@ -60,7 +67,45 @@ class AppController extends Controller
             ],
             'unauthorizedRedirect' => $this->referer()
         ]);
-        $this->Auth->allow(['display']);
+        $this->Auth->allow(['display']);*/
+
+        /*$this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'username',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Authexs',
+                'action'     => 'login'
+            ],
+            'loginRedirect' => [
+                'controller' => 'Authexs',
+                'action'     => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Authexs',
+                'action'     => 'login'
+            ]
+        ]);*/
+        /*$this->Auth->config('authenticate', [
+            AuthComponent::ALL => ['userModel' => 'users'], 'Form'
+        ]);*/
+
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Articles',
+                'action'     => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Pages',
+                'action'     => 'display',
+                'home'
+            ]
+        ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.

@@ -46,26 +46,26 @@ Router::defaultRouteClass(DashedRoute::class);
 /*
  * tag action
  */
-Router::scope(
+/*Router::scope(
     '/bookmarks',
     ['controller' => 'Bookmarks'],
     function($routes) {
         $routes->connect('/tagged/*', ['action' => 'tags']);
     }
-);
+);*/
 
-Router::scope('/', function (RouteBuilder $routes) {
+// Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    // $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    // $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
     /**
      * Connect catchall routes for all controllers.
@@ -83,6 +83,160 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+    // $routes->fallbacks(DashedRoute::class);
+// });
+
+/*Router::scope('/', function($routes) {
+    $routes->connect('/', ['controller' => 'Articles', 'action' => 'index']);
+});*/
+
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('/', ['controller' => 'Tests', 'action' => 'index']);
+    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect(
+        'tests/:arg1/:arg2',
+        ['controller' => 'Tests', 'action' => 'index'],
+        ['pass' => ['arg1', 'arg2']]
+    );
+
+    $routes->connect('pages/*', ['controller' => 'Pages', 'action' => 'display']);
+
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+//Router::connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+
+//Generating URLs----------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('generate', ['controller' => 'Generates', 'action' => 'index']);
+});*/
+
+
+
+//redirect route------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('generate2', ['controller' => 'Tests', 'action' => 'index']);
+    $routes->redirect('generate1', 'http://tutorialspoint.com/');
+    $routes->connect('generate_url', ['controller' => 'Generates', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+
+//controllers----------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect(
+        'redirectcontroller',
+        ['controller' => 'Redirects', 'action' => 'action1']
+    );
+    $routes->connect(
+        'redirectcontroller2',
+        ['controller' => 'Redirects', 'action' => 'action2']
+    );
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//view------------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('template', ['controller' => 'Products', 'action' => 'view']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('extend', ['controller' => 'Extends', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('elementexample', ['controller' => 'Elems', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//database--------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('users/add', ['controller' => 'Users', 'action' => 'add']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('users', ['controller' => 'Users', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('users/edit', ['controller' => 'Users', 'action' => 'edit']);
+    $routes->connect('users/delete', ['controller' => 'Users', 'action' => 'delete']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//authentication---------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('auth', ['controller' => 'Authexs', 'action' => 'index']);
+    $routes->connect('login', ['controller' => 'Authexs', 'action' => 'login']);
+    $routes->connect('logout', ['controller' => 'Authexs', 'action' => 'logout']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//errors------------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect(
+        'exception/:arg1/:arg2',
+        [
+            'controller' => 'Exps',
+            'action' => 'index'
+        ],
+        [
+            'pass' => ['arg1', 'arg2']
+        ]);
+});*/
+
+
+//logging------------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('logex', ['controller' => 'Logexs', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//form helper---------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('register', ['controller' => 'Registrations', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//internationalization------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('locale', ['controller' => 'Localizations', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//session--------------------------------------------------------------------------------------
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('sessionobject', ['controller' => 'Sessions', 'action' => 'index']);
+    $routes->connect('sessionread', ['controller' => 'Sessions', 'action' => 'retrieve_session_data']);
+    $routes->connect('sessionwrite', ['controller' => 'Sessions', 'action' => 'write_session_data']);
+    $routes->connect('sessioncheck', ['controller' => 'Sessions', 'action' => 'check_session_data']);
+    $routes->connect('sessiondelete', ['controller' => 'Sessions', 'action' => 'delete_session_data']);
+    $routes->connect('sessiondestroy', ['controller' => 'Sessions', 'action' => 'destroy_session_data']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+//validation------------------------------------------------------------------------------------
+/*::scope('/', function(RouteBuilder $routes) {
+    $routes->connect('validation', ['controller' => 'Valids', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});*/
+
+
+Router::scope('/', function(RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 });
 
