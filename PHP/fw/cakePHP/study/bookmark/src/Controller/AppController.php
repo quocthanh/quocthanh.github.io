@@ -30,10 +30,10 @@ class AppController extends Controller
     /**
      *
      */
-    public function beforeFilter(Event $event)
+    /*public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['view', 'index', 'display']);
-    }
+    }*/
 
     /**
      * Initialization hook method.
@@ -95,7 +95,8 @@ class AppController extends Controller
             AuthComponent::ALL => ['userModel' => 'users'], 'Form'
         ]);*/
 
-        $this->loadComponent('Auth', [
+        /*$this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
             'loginRedirect' => [
                 'controller' => 'Articles',
                 'action'     => 'index'
@@ -105,7 +106,7 @@ class AppController extends Controller
                 'action'     => 'display',
                 'home'
             ]
-        ]);
+        ]);*/
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -134,6 +135,9 @@ class AppController extends Controller
      */
     public function isAuthorized($user)
     {
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
         return false;
     }
 }

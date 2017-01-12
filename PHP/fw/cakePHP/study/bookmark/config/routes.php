@@ -235,6 +235,48 @@ Router::defaultRouteClass(DashedRoute::class);
     $routes->fallbacks(DashedRoute::class);
 });*/
 
+/* Router::connect(
+    '/tests/haha/:id',
+    ['controller' => 'Tests', 'action' => 'haha'],
+    ['id' => '[0-9]', 'pass' => ['id']]
+); */
+
+//----------------------------------------------------------COOKBOOK-----------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//routing----------------------------------------------------------------------------------------------------------------------
+
+/*Router::scope('tests/', function(RouteBuilder $routes) {
+    $routes->connect(
+        '/haha',
+        ['controller' => 'Tests', 'action' => 'haha'],
+        ['_name' => 'ahihi']
+    );
+});*/
+
+/*Router::scope('/', function(RouteBuilder $routes) {
+    $routes->connect(
+        'tests/haha/:id',
+        ['controller' => 'Tests', 'action' => 'haha'],
+        ['id' => '\d+', 'pass' => ['id']]
+    );
+    // $routes->fallbacks(DashedRoute::class);
+});*/
+
+Router::scope('/', function(RouteBuilder $routes) {
+    /*$routes->connect(
+        '/:controller/:id',
+        ['action' => 'view'],
+        ['id' => '[0-9]+', 'pass' => ['id']]
+    );*/
+    /*$routes->connect(
+        '/:userShortcut',
+        ['controller' => 'Tests', 'action' => 'haha'],
+        ['userShortcut' => '(?i:principal)']
+    );*/
+
+});
+
 
 Router::scope('/', function(RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
