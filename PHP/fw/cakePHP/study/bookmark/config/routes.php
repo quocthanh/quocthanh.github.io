@@ -263,6 +263,14 @@ Router::defaultRouteClass(DashedRoute::class);
     // $routes->fallbacks(DashedRoute::class);
 });*/
 
+/*Router::scope('/', ['_namePrefix' => 'api:'], function(RouteBuilder $routes) {
+    $routes->connect(
+        '/tests/haha',
+        ['controller' => 'Tests', 'action' => 'haha'],
+        ['_name' => 'hehe']
+    );
+});*/
+
 Router::scope('/', function(RouteBuilder $routes) {
     /*$routes->connect(
         '/:controller/:id',
@@ -274,7 +282,11 @@ Router::scope('/', function(RouteBuilder $routes) {
         ['controller' => 'Tests', 'action' => 'haha'],
         ['userShortcut' => '(?i:principal)']
     );*/
-
+    $routes->redirect(
+        '/tests/haha',
+        'http://google.com',
+        ['status' => 302]
+    );
 });
 
 
