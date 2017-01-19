@@ -17,83 +17,98 @@ class ArticlesController extends AppController
      */
     public function index()
     {
-        $articles = $this->Articles->find();
-        $this->set(compact('articles'));
+        $abc = 1;
+        echo 'ahihi do ngok 123 456<br>';
+        try {
+            $abc->method();
+        } catch (\Error $e) {
+            echo $e->getMessage() . '<br>';
+        } finally {
+            echo 'ahihi do nguk <br>';
+        }
+        echo 'ahihi do ngok <br>';
+
+        // try {
+            $value = 1 << -1;
+        /*} catch (\ArithmeticError $e) {
+            echo $e->getMessage() . "<br>";
+        }*/
+
+        // try {
+            // $value = 1 % 0;
+        // } catch (DivisionByZeroError $e) {
+            // echo $e->getMessage();
+        // }
+        // try {
+            throw new \Exception('jijo');
+        /*} catch (\Exception $e) {
+            echo $e->getMessage() . "<br>";
+        }*/
+        echo 'ahihi do nguk <br>';
     }
     /**
-     *
+     * Error
      */
-    public function view($id = null)
+    public function error()
     {
-        $article = $this->Articles->get($id);
-        $this->set(compact('article'));
+        $this->autoRender = false;
+        $abc = 1;
+        echo 'hello<br>';
+        try {
+            $abc->method();
+        } catch (\Error $e) {
+            echo $e->getMessage() . '<br>';
+        } finally {
+            echo 'ahihi do ngok<br>';
+        }
+        echo 'lalala<br>';
     }
     /**
-     *
+     * TypeError
      */
-    public function add()
+    public function typeError()
     {
-        $article = $this->Articles->newEntity();
-        if ($this->request->is('post')) {
-            $article = $this->Articles->patchEntity($article, $this->request->data);
-            $article->user_id = $this->Auth->user('id');
-            if ($this->Articles->save($article)) {
-                $this->Flash->success(__('Your article has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('Unable to add your article.'));
+        $this->autoRender = false;
+        function add(int $left, int $right)
+        {
+            return $left + $right;
         }
-        $this->set('article', $article);
 
-        $categories = $this->Articles->Categories->find('treeList');
-        $this->set(compact('categories'));
+        try {
+            $value = add('left', 'right');
+        } catch (\TypeError $e) {
+            echo $e->getMessage() . '<br>';
+        }
+        echo 'lalala<br>';
     }
     /**
-     *
+     * ParseError
      */
-    public function edit($id = null)
+    public function parseError()
     {
-        $article = $this->Articles->get($id);
-        if ($this->request->is(['post', 'put'])) {
-            $this->Articles->patchEntity($article, $this->request->data);
-            if ($this->Articles->save($article)) {
-                $this->Flash->success(__('Your article has been updated.'));
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('Unable to update your article.'));
-
+        $this->autoRender = false;
+        try {
+            // $result = eval("var_dup(1)");
+            require 'lalala.php';
+        } catch (\ParseError $e) {
+        // } catch (\Error $e) {
+            echo $e->getMessage() . '<br>';
+        } catch (\Error $e) {
+            echo 'ahaha';
         }
-        $this->set('article', $article);
+        echo 'lalala';
     }
     /**
-     *
+     * ArithmeticError
      */
-    public function delete($id)
+    public function ariError()
     {
-        $this->request->allowMethod(['post', 'delete']);
-
-        $article = $this->Articles->get($id);
-
-        if ($this->Articles->delete($article)) {
-            $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
-            return $this->redirect(['action' => 'index']);
+        $this->autoRender = false;
+        try {
+            $value = 1 << -1;
+        } catch (\ArithmeticError $e) {
+            echo $e->getMessage() . '<br>';
         }
-    }
-    /**
-     *
-     */
-    public function isAuthorized($user)
-    {
-        if ($this->request->action === 'add') {
-            return true;
-        }
-
-        if (in_array($this->request->action, ['edit', 'delete'])) {
-            $articleId = (int)$this->request->params['pass'][0];
-            if ($this->Articles->isOwnedBy($articleId, $user['id'])) {
-                return true;
-            }
-        }
-        return parent::isAuthorized($user);
+        echo 'lalala';
     }
 }
