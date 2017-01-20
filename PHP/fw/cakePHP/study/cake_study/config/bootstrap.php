@@ -1,4 +1,8 @@
 <?php
+// use App\Error\AppError;
+
+// $errorHandler = new AppError();
+// $errorHandler->register();
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -67,6 +71,9 @@ use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 use App\Error\AppError;
 
+// $errorHandler = new AppError();
+// $errorHandler->register();
+
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
@@ -120,10 +127,17 @@ ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
  */
 $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
-    (new ConsoleErrorHandler(Configure::read('Error')))->register();
+    // $errorHandler = new AppError();
+    // $errorHandler->register();
+    // (new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
-    (new ErrorHandler(Configure::read('Error')))->register();
+    $errorHandler = new AppError();
+    $errorHandler->register();
+    // (new ErrorHandler(Configure::read('Error')))->register();
+    // (new ErrorHandler())->register();
 }
+// $errorHandler = new AppError();
+// $errorHandler->register();
 
 /*
  * Include the CLI bootstrap overrides.

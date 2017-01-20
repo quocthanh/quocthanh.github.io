@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
+use Cake\Network\Exception\NotFoundException;
 
 /**
  * Articles Controller
@@ -11,6 +13,13 @@ use App\Controller\AppController;
 class ArticlesController extends AppController
 {
     /**
+     *
+     */
+    public function index()
+    {
+        echo Configure::version();
+    }
+    /**
      * Error
      *
      * catch fatal errors or recoverable fatal errors
@@ -19,7 +28,8 @@ class ArticlesController extends AppController
     {
         $abc = 1;
         echo $xyz;
-        // throw new \Exception('hihi');
+        // throw new Exception('hihi');
+        // throw new NotFoundException('hihi');
         // try {
             $abc->method();
         /*} catch (\Error $e) {
