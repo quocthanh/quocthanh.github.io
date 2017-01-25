@@ -9,7 +9,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
 
     /**
      * Configure basic information about the application.
@@ -300,6 +300,12 @@ return [
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
             'url' => env('LOG_ERROR_URL', null),
         ],
+        /* 'queries' => [
+            'className' => 'File',
+            'path' => LOGS,
+            'file' => 'queries.log',
+            'scopes' => ['queriesLog']
+        ] */
     ],
 
     /**

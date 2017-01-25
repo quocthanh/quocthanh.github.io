@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Core\Configure;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * Articles Controller
@@ -55,5 +56,16 @@ class ArticlesController extends AppController
         $res = $this->Categories->find();
         pr($res->toArray());
         $this->autoRender = false;
+    }
+    /**
+     *
+     */
+    public function act5()
+    {
+        $this->autoRender = false;
+        $hasher = new DefaultPasswordHasher();
+        pr($hasher);
+        echo PASSWORD_DEFAULT;
+        echo PASSWORD_BCRYPT ;
     }
 }

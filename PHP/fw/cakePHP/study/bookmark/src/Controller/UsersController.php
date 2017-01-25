@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Datasource\ConnectionManager;
 use Cake\Event\Event;
+use Cake\Log\Log;
 
 class UsersController extends AppController
 {
@@ -68,14 +69,30 @@ class UsersController extends AppController
     public function login()
     {
         if ($this->request->is('post')) {
+            $conn = ConnectionManager::get('default');
+            Log::config('queries', [
+                'className' => 'File',
+                'path' => LOGS,
+                'file' => 'queries.log',
+                'scopes' => ['queriesLog']
+            ]);
+            $conn->logQueries(true);
+
             $user = $this->Auth->identify();
+            $conn->logQueries(false);
+            // pr($conn->getLog(false, false));
+
             if ($user) {
                 $this->Auth->setUser($user);
+                // echo $this->Login->lastQuery();
                 // echo $this->Auth->redirectUrl();
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error(__('Invalid username or password, try again'));
         }
+        // $this->loadModel('Login');
+        // echo $this->Login->lastQuery();
+        // echo $this->Login->getDataSource();
     }
     /**
      *

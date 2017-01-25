@@ -51,14 +51,21 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
-        /*$this->loadComponent('Auth', [
+        $this->loadComponent('Auth', [
             'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
-                        'username' => 'email',
-                        'password' => 'password'
-                    ]
+                        // 'username' => 'email',
+                        // 'username' => 'username',
+                        'password' => 'password',
+                        'username' => 'hehe',
+                        // 'password' => 'haha'
+                    ],
+                    'passwordHasher' => [
+                        'className' => 'Legacy'
+                    ],
+                    'userModel' => 'Login',
                 ]
             ],
             'loginAction' => [
@@ -67,7 +74,7 @@ class AppController extends Controller
             ],
             'unauthorizedRedirect' => $this->referer()
         ]);
-        $this->Auth->allow(['display']);*/
+        $this->Auth->allow(['display']);
 
         /*$this->loadComponent('Auth', [
             'authenticate' => [
