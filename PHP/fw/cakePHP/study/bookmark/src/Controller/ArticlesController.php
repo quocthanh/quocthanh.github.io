@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Articles Controller
@@ -11,104 +12,48 @@ use App\Controller\AppController;
 class ArticlesController extends AppController
 {
     /**
-     * Index method
      *
-     * @return \Cake\Network\Response|null
      */
     public function index()
     {
-        $abc = 1;
-        echo 'ahihi do ngok 123 456<br>';
-        try {
-            $abc->method();
-        } catch (\Error $e) {
-            echo $e->getMessage() . '<br>';
-        } finally {
-            echo 'ahihi do nguk <br>';
-        }
-        echo 'ahihi do ngok <br>';
-
-        // try {
-            $value = 1 << -1;
-        /*} catch (\ArithmeticError $e) {
-            echo $e->getMessage() . "<br>";
-        }*/
-
-        // try {
-            // $value = 1 % 0;
-        // } catch (DivisionByZeroError $e) {
-            // echo $e->getMessage();
-        // }
-        // try {
-            throw new \Exception('jijo');
-        /*} catch (\Exception $e) {
-            echo $e->getMessage() . "<br>";
-        }*/
-        echo 'ahihi do nguk <br>';
+        echo Configure::version() . '<br>';
+        echo phpversion();
+        $this->autoRender = false;
     }
     /**
-     * Error
+     *
      */
-    public function error()
+    public function act1()
     {
-        $this->autoRender = false;
-        $abc = 1;
-        echo 'hello<br>';
-        try {
-            $abc->method();
-        } catch (\Error $e) {
-            echo $e->getMessage() . '<br>';
-        } finally {
-            echo 'ahihi do ngok<br>';
-        }
-        echo 'lalala<br>';
+        // return $this->render('/Elems/fifo', 'haha');
+        $this->render('/Elems/fifa');
+        // $this->render('fifa');
     }
     /**
-     * TypeError
+     *
      */
-    public function typeError()
+    public function act2()
     {
-        $this->autoRender = false;
-        function add(int $left, int $right)
-        {
-            return $left + $right;
-        }
-
-        try {
-            $value = add('left', 'right');
-        } catch (\TypeError $e) {
-            echo $e->getMessage() . '<br>';
-        }
-        echo 'lalala<br>';
+        // $this->redirect(['controller' => 'Elems', 'action' => 'index'], 303);
+        // $this->redirect(['controller' => 'Elems', 'action' => 'index'], 301);
+        // $this->redirect(['controller' => 'Products', 'action' => 'index']);
+        $this->redirect($this->referer());
     }
     /**
-     * ParseError
+     *
      */
-    public function parseError()
+    public function act3()
     {
-        $this->autoRender = false;
-        try {
-            // $result = eval("var_dup(1)");
-            require 'lalala.php';
-        } catch (\ParseError $e) {
-        // } catch (\Error $e) {
-            echo $e->getMessage() . '<br>';
-        } catch (\Error $e) {
-            echo 'ahaha';
-        }
-        echo 'lalala';
+        $this->setAction('act1');
     }
     /**
-     * ArithmeticError
+     *
      */
-    public function ariError()
+    public function act4()
     {
+        $this->loadModel('Categories');
+        $res = $this->Categories->find();
+        pr($res->toArray());
         $this->autoRender = false;
-        try {
-            $value = 1 << -1;
-        } catch (\ArithmeticError $e) {
-            echo $e->getMessage() . '<br>';
-        }
-        echo 'lalala';
     }
 }
