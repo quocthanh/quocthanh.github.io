@@ -1,0 +1,52 @@
+﻿- clients có thể tính toán phụ server, lưu vào đâu đó (cookies, local storage)
+server có thể lấy kết qủa đó
+- tạo ra 1 class trong lúc chạy, clas ko đc định nghĩa từ đầu,
+mà dựa vào nhu cầu trong quá trình mà tự tạo ra class
+- đoán, bỏ qua 1 số cái, và nhảy vào lun những hàm cần thiết,
+nếu xảy ra lỗi thì quay lại, reset lại (trong t.h xác suất cao),
+số t.h đoán đúng nhiều hơn số t.h đoán sai
+- làm sao cho source code ko cố định
+- để tăng performance, khi làm cần nhìn vào cái ít để làm ít việc
+hơn mà vẫn đạt đc cũng kết quả
+- Để làm ít việc hơn mà có cùng kết quả thì nên tận dụng
+những cái đã có sẵn (nếu có)
+- Tạo ra 1 quá trình gồm các khối 1 -> 2 -> 3 -> 4, sẽ có 1 obj quyết định coi
+sẽ bỏ những việc j vào các khối đó => tăng performance? Quá trình có thể phức tạp hơn
+1 -> 2 -> 3 -> 6
+
+          ^
+          |
+
+     4 -> 5
+- Xây dựng cơ chế như reactJS, AngularJS, ...
+- Hiểu rõ về git
+- Bộ đệm, nơi làm việc tạm thời, tạo cách để khi cần có thể tạo ra bộ đệm cần thiết
+(ko bị giới hạn về SL)
+- Cần có lưu đồ giải thuật tốt, tổ chức tốt việc nhảy từ khối logic này
+sang khối logic #
+- Cần 1 mô hình để quản lý sự ảnh hưởng lẫn nhau,
+nếu ko khi chương trình lớn hơn, khi thay đổi 1 cái này, mình  sẽ ko pik hết những cái
+sẽ bị ảnh hưởng
+- Khi tạo interface giữa các khối, có nên chừa ra 1 số cái dự phòng (như 1 số biến),
+như những sợi quang kết nối giữa màn hình máy tính với board mạch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

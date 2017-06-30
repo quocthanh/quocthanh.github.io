@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        a:hover {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <a href='http://news.zing.vn/' style="pointer-events: none;">
+        Click vô đây
+        <p>abc</p>
+    </a>
+
+    <div id="t1">
+        <div id="t2">
+            abc
+        </div>
+    </div>
+
+<script>
+document.getElementById('t1').onclick = function() {
+    this.style.color = 'blue';
+    this.style.fontWeight = 'bold';
+
+};
+document.getElementById('t2').onclick = function() {
+    this.style.color = 'red';
+    this.style.fontWeight = 'bold';
+
+};
+</script>
+</body>
+
+</html>

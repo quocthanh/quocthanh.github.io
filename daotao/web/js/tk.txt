@@ -1,2 +1,5 @@
 ﻿http://mootools.net/
 http://www.javascriptmvc.com/
+https://flow.org/
+https://www.typescriptlang.org/
+
